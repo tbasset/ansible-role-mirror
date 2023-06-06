@@ -1,0 +1,18 @@
+{% for repo in repos %}
+[{{ repo.name }}]
+name={{ repo.description }}
+{# All repos for mirroring need to be enabled #}
+enabled=1
+{%   if repo.baseurl | default(false) %}
+baseurl={{ repo.baseurl }}
+{%   else %}
+mirrorlist={{ repo.mirrorlist }}
+{%   endif %}
+gpgcheck={{ '1' if repo.gpgcheck | default(true) else '0' }}
+gpgkey={{ repo.gpgkey }}
+repo_gpgcheck={{ '1' if repo.repo_gpgcheck | default(true) else '0' }}
+sslverify={{ '1' if repo.sslverify | default(true) else '0' }}
+{%   if repo.metadata_expire is defined %}
+metadata_expire={{ repo.metadata_expire }}
+{%   endif %}
+{% endfor %}

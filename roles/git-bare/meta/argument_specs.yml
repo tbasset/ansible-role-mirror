@@ -1,0 +1,13 @@
+---
+argument_specs:
+  main:
+    short_description: Mirror Git repository (as bare repo)
+    options:
+      target:
+        type: str
+        required: true
+        description: Directory to mirror to
+      repository:
+        type: str
+        required: true
+        description: Repository to clone

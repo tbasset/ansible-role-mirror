@@ -1,0 +1,28 @@
+---
+- name: Make sure yum config directory exists
+  ansible.builtin.file:
+    path: '{{ yum_conf | dirname }}'
+    state: directory
+- name: Create yum configuration file
+  ansible.builtin.template:
+    src: yum.conf.j2
+    dest: '{{ yum_conf }}'
+- name: Run reposync
+  ansible.builtin.command:
+    # My old sync script had --doanloadcomps and --download-metadata
+    # hard-coded - not making them variables until I need to turn them
+    # off.
+    cmd: >
+      reposync
+      --arch={{ architecture }}
+      --config={{ yum_conf }}
+      --download_path={{ target }}
+      {{ "--delete" if delete else "" }}
+      {{ "--newest-only" if newest_only else "" }}
+      --downloadcomps
+      --download-metadata
+- name: Run create repo on each new repository
+  include_tasks: createrepo.yml
+  vars:
+    repo: '{{ target }}/{{ item.name }}'
+  loop: '{{ repos }}'

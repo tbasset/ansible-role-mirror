@@ -1,0 +1,65 @@
+---
+argument_specs:
+  main:
+    short_description: Main entry point for mirroring a repository with reposync
+    options:
+      target:
+        type: str
+        required: true
+        description: Directory to mirror to (note each repository will be created in a subdirectory matching the repository name by reposync)
+      yum_conf:
+        type: str
+        required: true
+        description: Path of yum configuration file (does not need to be called yum.conf) for this repository (will be crated/updated before sync)
+      delete:
+        type: bool
+        default: true
+        description: Delete local files no longer present in remote repository
+      newest_only:
+        type: bool
+        default: true
+        description: Only fetch the latest version if mulitple versions of a package are available
+      architecture:
+        type: str
+        default: x86_64
+        description: Act as if running the specified arch
+      repos:
+        type: list
+        elements: dict
+        description: List of repositories to include in this mirror
+        required_one_of:
+          - ['baseurl', 'mirrorlist']
+        mutually_exclusive:
+          - ['baseurl', 'mirrorlist']
+        options:
+          name:
+            type: str
+            required: true
+            description: Name of repository (will be used for target directory by reposync)
+          baseurl:
+             type: str
+             description: Base url for the repository
+          mirrorlist:
+             type: str
+             description: Mirror list url for the repository
+          description:
+            type: str
+            description: Description of the repository
+          repo_gpgcheck:
+             type: bool
+             default: true
+             description: Whether a GPG signature check should be done on the repodata
+          gpgcheck:
+             type: bool
+             default: true
+             description: Whether a GPG signature check should be done on the packages
+          gpgkey:
+             type: str
+             description: URL for the ASCII-armoured GPG key for the repository
+          sslverify:
+             type: bool
+             default: true
+             description: Should SSL certificates be verified
+          metadata_expire:
+             type: int
+             description: Frequency (in seconds) with which yum metadata will expire

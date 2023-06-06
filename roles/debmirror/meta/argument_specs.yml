@@ -1,0 +1,77 @@
+---
+argument_specs:
+  main:
+    short_description: Main entry point for mirroring a repository with debmirror
+    options:
+      target:
+        type: str
+        required: true
+        description: Directory to mirror to
+      keyring_directory:
+        type: str
+        required: true
+        description: Directory to download keys and store keyring in (must be outside target or debmirror will delete it)
+      source:
+        description: Where to mirror from
+        options:
+          host:
+            type: str
+            default: ftp.debian.org
+            description: Hostname to mirror from
+          root:
+            type: str
+            default: debian
+            description: Location on the remote host that is the root of the Debian archive
+      keys:
+        type: list
+        elements: dict
+        options:
+          name:
+            type: str
+            required: true
+            description: Name of key (will be used for filename)
+          url:
+            type: str
+            requires: true
+            description: Where to fetch the key from
+          checksum:
+            type: str
+            description: Optional checksum for the downloaded key
+          fingerprint:
+            type: str
+            description: Optional fingerprint of the downloaded key
+      method:
+        type: str
+        default: rsync
+        choices:
+          - ftp
+          - http
+          - https
+          - rsync
+        description: Method to use to download (rsync/http)
+      suites:
+        type: list
+        elements: str
+        required: true
+        description: The list of suites to mirror
+      components:
+        type: list
+        elements: str
+        default: ['main']
+        description: The list of components to mirror
+      architectures:
+        type: list
+        elements: str
+        default: ['amd64']
+        description: The list of architectures to mirror
+      rsync_extras:
+        type: list
+        elements: str
+        default: ['trace']
+        choices:
+          - doc
+          - indices
+          - tools
+          - trace
+          - none
+        description: Additional files to mirror (with rsync) that are not part of the archive itself

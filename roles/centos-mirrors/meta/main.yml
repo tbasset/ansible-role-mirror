@@ -1,0 +1,30 @@
+---
+dependencies:
+  - role: reposync
+    target: '{{ mirror_base_path }}'
+    yum_conf: '{{ mirror_base_path }}/yum-configs/centos.yum.conf'
+    repos:
+      - name: centos-6.10-os
+        description: CentOS 6.10 OS
+        baseurl: https://vault.centos.org/6.10/os/x86_64/
+        gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-6
+      - name: centos-6.10-updates
+        description: CentOS 6.10 updates
+        baseurl: https://vault.centos.org/6.10/updates/x86_64/
+        gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-6
+      - name: centos-6.10-extras
+        description: CentOS 6.10 extras
+        baseurl: https://vault.centos.org/6.10/extras/x86_64/
+        gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-6
+      - name: centos-7-os
+        description: CentOS 7 OS
+        baseurl: http://mirror.centos.org/centos/7/os/x86_64/
+        gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7
+      - name: centos-7-updates
+        description: CentOS 7 updates
+        baseurl: http://mirror.centos.org/centos/7/updates/x86_64/
+        gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7
+      - name: centos-7-extras
+        description: CentOS 7 extras
+        baseurl: http://mirror.centos.org/centos/7/extras/x86_64/
+        gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7

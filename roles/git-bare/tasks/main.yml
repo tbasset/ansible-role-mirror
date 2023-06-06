@@ -1,0 +1,14 @@
+---
+# Use 'target' in the name output as 'repository' may contain credentials.
+- name: Clone respository {{ target }}
+  ansible.builtin.git:
+    bare: yes
+    repo: '{{ repository }}'
+    dest: '{{ target }}'
+  register: git_clone_result
+- name: Update server info (to allow serving using "dumb" protocols like http(s))
+  ansible.builtin.command:
+    cmd: git update-server-info
+    chdir: '{{ target }}'
+  # Only when revision changed
+  when: git_clone_result.after != git_clone_result.before

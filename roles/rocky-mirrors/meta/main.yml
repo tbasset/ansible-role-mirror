@@ -1,0 +1,18 @@
+---
+dependencies:
+  - role: reposync
+    target: '{{ mirror_base_path }}'
+    yum_conf: '{{ mirror_base_path }}/yum-configs/rocky.yum.conf'
+    repos:
+      - name: rocky-8-baseos
+        description: Rocky Linux 8 BaseOS
+        baseurl: http://rockylinux.mirrorservice.org/8/BaseOS/x86_64/os/
+        gpgkey: https://dl.rockylinux.org/pub/rocky/RPM-GPG-KEY-rockyofficial
+      - name: rocky-8-appstream
+        description: Rocky Linux 8 AppStream
+        baseurl: http://rockylinux.mirrorservice.org/8/AppStream/x86_64/os/
+        gpgkey: https://dl.rockylinux.org/pub/rocky/RPM-GPG-KEY-rockyofficial
+      - name: rocky-8-extras
+        description: Rocky Linux 8 extras
+        baseurl: http://rockylinux.mirrorservice.org/8/extras/x86_64/os/
+        gpgkey: https://dl.rockylinux.org/pub/rocky/RPM-GPG-KEY-rockyofficial

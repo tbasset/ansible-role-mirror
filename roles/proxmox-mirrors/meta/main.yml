@@ -1,0 +1,51 @@
+---
+dependencies:
+  - role: debmirror
+    method: http
+    rsync_extras: ['none']
+    source:
+      host: download.proxmox.com
+      root: debian/pve
+    target: '{{ mirror_base_path }}/pve-no-subscription'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/pve-no-subscription'
+    suites:
+      - bullseye
+    components:
+      - pve-no-subscription
+    keys:
+      - name: proxmox-keyring
+        url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
+        checksum: 'sha512:7fb03ec8a1675723d2853b84aa4fdb49a46a3bb72b9951361488bfd19b29aab0a789a4f8c7406e71a69aabbc727c936d3549731c4659ffa1a08f44db8fdcebfa'
+  - role: debmirror
+    method: http
+    rsync_extras: ['none']
+    source:
+      host: download.proxmox.com
+      root: debian/pbs
+    target: '{{ mirror_base_path }}/pbs-no-subscription'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/pbs-no-subscription'
+    suites:
+      - bullseye
+    components:
+      - pbs-no-subscription
+    keys:
+      - name: proxmox-keyring
+        url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
+        checksum: 'sha512:7fb03ec8a1675723d2853b84aa4fdb49a46a3bb72b9951361488bfd19b29aab0a789a4f8c7406e71a69aabbc727c936d3549731c4659ffa1a08f44db8fdcebfa'
+
+  # - role: debmirror
+  #   method: http
+  #   rsync_extras: ['none']
+  #   source:
+  #     host: download.proxmox.com
+  #     root: debian/ceph-pacific
+  #   target: '{{ mirror_base_path }}/ceph-pacific'
+  #   keyring_directory: '{{ mirror_base_path }}/keyrings/ceph-pacific'
+  #   suites:
+  #     - bullseye
+  #   components:
+  #     - main
+  #   keys:
+  #     - name: proxmox-keyring
+  #       url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
+  #       checksum: 'sha512:7fb03ec8a1675723d2853b84aa4fdb49a46a3bb72b9951361488bfd19b29aab0a789a4f8c7406e71a69aabbc727c936d3549731c4659ffa1a08f44db8fdcebfa'

@@ -1,0 +1,43 @@
+---
+- name: Make target directory
+  ansible.builtin.file:
+    path: "{{ target }}"
+    state: directory
+- name: Make keys directory
+  ansible.builtin.file:
+    path: "{{ keyring_directory }}/keys.d"
+    state: directory
+  when: keys is defined
+- name: Download keys for keyring
+  include_tasks: fetch-key.yml
+  loop: "{{ keys | default([]) }}"
+  loop_control:
+    loop_var: key
+- name: Delete any extra keys
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_fileglob: "{{ keyring_directory }}/keys.d/*.key"
+  when: item.split('/')[-1].split('.')[0] not in keys | map(attribute='name') | list
+- name: Delete old keyring
+  ansible.builtin.file:
+    path: "{{ keyring_directory }}/keyring.gpg"
+    state: absent
+- name: Make keyring
+  ansible.builtin.shell: gpg --no-default-keyring --keyring {{ keyring_directory }}/keyring.gpg --import {{ item }}
+  with_fileglob: "{{ keyring_directory }}/keys.d/*.key"
+- name: Run debmirror
+  ansible.builtin.command:
+    argv:
+      - debmirror
+      - --verbose
+      - --precleanup # Remove old files before download - makes mirror inconsistent until debmirror finishes but copes better with limited space
+      - --dist={{ ','.join(suites) }}
+      - --section={{ ','.join(components) }}
+      - --arch={{ ','.join(architectures) }}
+      - --method={{ method }}
+      - --rsync-extra={{ ','.join(rsync_extras) }}
+      - --host={{ source.host }}
+      - --root={{ source.root }}
+      - --keyring={{ keyring_directory }}/keyring.gpg
+      - "{{ target }}"

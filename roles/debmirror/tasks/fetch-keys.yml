@@ -1,0 +1,17 @@
+---
+- name: Download key {{ key.name }}
+  ansible.builtin.get_url:
+    dest: "{{ keyring_directory }}/keys.d/{{ key.name }}.key"
+    url: "{{ key.url }}"
+    checksum: "{{ key.checksum| default('') }}"
+- name: Validate {{ key.name }} fingerprint
+  block:
+    - name: Get fingerprint from file
+      ansible.builtin.shell:
+        cmd: "gpg --show-keys --with-fingerprint --with-colons {{ keyring_directory }}/keys.d/{{ key.name }}.key | awk -F: '$1 == \"fpr\" { print $10 }'"
+      register: fingerprint
+    - name: Check fingerprint matches
+      ansible.builtin.fail:
+        msg: "File fingerprint ({{ fingerprint.stdout }}) does not match specified value ({{ key.fingerprint }})"
+      when: key.fingerprint.replace(' ', '') not in fingerprint.stdout.split('\n')
+  when: key.fingerprint is defined

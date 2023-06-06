@@ -1,0 +1,13 @@
+---
+- name: Check if comps.xml exists
+  ansible.builtin.stat:
+    path: '{{ repo }}/comps.xml'
+  register: comps_xml_stat
+- name: Run createrepo
+  ansible.builtin.command:
+    cmd: >
+      createrepo
+      --update
+      {{ "-g" if comps_xml_stat.stat.exists else "" }}
+      {{ repo + "/comps.xml" if comps_xml_stat.stat.exists else ""}}
+      {{ repo }}
