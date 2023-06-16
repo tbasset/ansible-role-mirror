@@ -2,7 +2,7 @@
 method: http
 # Match debmirror's defaults for source, components and rsync_extras
 source:
-  host: paltec.app.diplomatie.gouv.fr
+  host: ftp.fr.debian.org
   root: debian
 components:
   - main
@@ -14,3 +14,7 @@ rsync_extras:
 # Almost all my systems are x86_64
 architectures:
   - amd64
+# Extra options (include/exclude mostly)
+extra_options: 
+  - --exclude-deb-section=comm
+  - --exclude-deb-section=devel

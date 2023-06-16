@@ -1,14 +1,31 @@
 ---
 dependencies:
+  # - role: debmirror
+  #   source:
+  #     host: rsync.mirrorservice.org
+  #     root: ftp.debian.org/debian
+  #   target: '{{ mirror_base_path }}/debian'
+  #   keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
+  #   suites:
+  #     - buster
+  #     - buster-updates
+  #     - bullseye
+  #     - bullseye-updates
+  #   keys:
+  #     - name: debian-10-buster
+  #       url: https://ftp-master.debian.org/keys/archive-key-10.asc
+  #       fingerprint: "80D1 5823 B7FD 1561 F9F7 BCDD DC30 D7C2 3CBB ABEE"
+  #     - name: debian-11-buster
+  #       url: https://ftp-master.debian.org/keys/archive-key-11.asc
+  #       fingerprint: "1F89 983E 0081 FDE0 18F3 CC96 73A4 F27B 8DD4 7936"
   - role: debmirror
+    method: http
     source:
-      host: rsync.mirrorservice.org
-      root: ftp.debian.org/debian
+      host: ftp.debian.org
+      root: debian
     target: '{{ mirror_base_path }}/debian'
-    keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
     suites:
-      - buster
-      - buster-updates
       - bullseye
       - bullseye-updates
     keys:
@@ -26,7 +43,6 @@ dependencies:
     target: '{{ mirror_base_path }}/debian-security'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
     suites:
-      - buster/updates
       - bullseye-security
     keys:
       - name: debian-10-buster-security

@@ -40,4 +40,5 @@
       - --host={{ source.host }}
       - --root={{ source.root }}
       - --keyring={{ keyring_directory }}/keyring.gpg
+      - "{{ extra_options }}"
       - "{{ target }}"
