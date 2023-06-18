@@ -59,6 +59,7 @@
       - --keyring={{ keyring_directory }}/keyring.gpg
       - --slow-cpu
       - --i18n
+      - --dry-run
     argv_end:
       - "{{ extra_options | join (' ') }}"
       - "{{ target }}"
