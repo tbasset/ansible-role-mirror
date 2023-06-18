@@ -75,3 +75,8 @@ argument_specs:
           - trace
           - none
         description: Additional files to mirror (with rsync) that are not part of the archive itself
+      extra_options:
+        type: list
+        elements: str
+        required: false
+        description: The list of extra options like include/exclude packages
