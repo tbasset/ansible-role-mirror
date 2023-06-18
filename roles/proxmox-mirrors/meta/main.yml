@@ -1,13 +1,14 @@
 ---
 dependencies:
+
   - role: debmirror
     method: http
     rsync_extras: ['none']
     source:
       host: download.proxmox.com
-      root: debian/pve
-    target: '{{ mirror_base_path }}/pve-no-subscription'
-    keyring_directory: '{{ mirror_base_path }}/keyrings/pve-no-subscription'
+      root: //debian/pve
+    target: '{{ mirror_base_path }}/proxmox'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/proxmox'
     suites:
       - bullseye
     components:
@@ -15,15 +16,21 @@ dependencies:
     keys:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
-        checksum: 'sha512:7fb03ec8a1675723d2853b84aa4fdb49a46a3bb72b9951361488bfd19b29aab0a789a4f8c7406e71a69aabbc727c936d3549731c4659ffa1a08f44db8fdcebfa'
+    extra_options:
+      - "--exclude='(/.*dbgsym.*)'"
+      - "--exclude='(/.*dbg_.*)'"
+      - "--exclude='(/.*debug_.*)'"
+      - "--exclude='(/pve-kernel-5.*)'"
+      - "--exclude='(/pve-headers-5.*)'"
+
   - role: debmirror
     method: http
     rsync_extras: ['none']
     source:
       host: download.proxmox.com
-      root: debian/pbs
-    target: '{{ mirror_base_path }}/pbs-no-subscription'
-    keyring_directory: '{{ mirror_base_path }}/keyrings/pbs-no-subscription'
+      root: //debian/pbs
+    target: '{{ mirror_base_path }}/proxmox-pbs'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/proxmox-pbs'
     suites:
       - bullseye
     components:
@@ -31,7 +38,10 @@ dependencies:
     keys:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
-        checksum: 'sha512:7fb03ec8a1675723d2853b84aa4fdb49a46a3bb72b9951361488bfd19b29aab0a789a4f8c7406e71a69aabbc727c936d3549731c4659ffa1a08f44db8fdcebfa'
+    extra_options:
+      - "--exclude='(/.*dbgsym.*)'"
+      - "--exclude='(/.*dbg_.*)'"
+      - "--exclude='(/.*debug_.*)'"
 
   # - role: debmirror
   #   method: http
