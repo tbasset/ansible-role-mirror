@@ -59,7 +59,8 @@
       - --slow-cpu
       - --i18n
     argv_end:
-      - "{{ extra_options }}"
+      - "{{ extra_options | join (' ') }}"
       - "{{ target }}"
   ansible.builtin.command:
-    argv: "{{ argv_start + extra_options | split + argv_end }}"
+    argv: "{{ argv_start + argv_end }}"
+ 
