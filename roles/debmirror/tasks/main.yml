@@ -43,8 +43,8 @@
   with_fileglob: "{{ keyring_directory }}/keys.d/*.key"
 
 - name: Run debmirror
-  ansible.builtin.command:
-    argv:
+  vars:
+    argv_start:
       - debmirror
       - --verbose
       - --precleanup # Remove old files before download - makes mirror inconsistent until debmirror finishes but copes better with limited space
@@ -58,5 +58,8 @@
       - --keyring={{ keyring_directory }}/keyring.gpg
       - --slow-cpu
       - --i18n
+    argv_end:
       - "{{ extra_options }}"
       - "{{ target }}"
+  ansible.builtin.command:
+    argv: "{{ argv_start + extra_options | split + argv_end }}"
