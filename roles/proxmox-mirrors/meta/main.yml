@@ -18,7 +18,9 @@ dependencies:
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
       - "--nosource"
-      - "--exclude='(/.*dbgsym.*)'"
+      - "--cleanup"
+      - "--limit-priority=required"
+      - "--exclude='.*-dbgsym_.*'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
       - "--exclude='(/pve-kernel-5.10\\..*)'"
@@ -54,7 +56,9 @@ dependencies:
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
       - "--nosource"
-      - "--exclude='(/.*dbgsym.*)'"
+      - "--cleanup"
+      - "--limit-priority=required"
+      - "--exclude='.*-dbgsym_.*'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
       - "--exclude='(/pve-kernel-5.10\\..*)'"
