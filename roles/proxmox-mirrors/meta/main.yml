@@ -19,7 +19,8 @@ dependencies:
     extra_options:
       - --nosource
       - --no-check-gpg
-      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
+      - --exclude-deb-section '^debug$'
+      - --exclude '(-dbg_|-dbg-|-dbgsym_)'
 
   - role: debmirror
     method: http
@@ -39,7 +40,8 @@ dependencies:
     extra_options:
       - --nosource
       - --no-check-gpg
-      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
+      - --exclude-deb-section '^debug$'
+      - --exclude '(-dbg_|-dbg-|-dbgsym_)'
 
   # - role: debmirror
   #   method: http
