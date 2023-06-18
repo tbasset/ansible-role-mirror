@@ -1,7 +1,6 @@
 ---
 
 - name: Make target directory
-  become: true
   ansible.builtin.file:
     path: "{{ target }}"
     state: directory
