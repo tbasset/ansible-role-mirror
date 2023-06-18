@@ -20,13 +20,16 @@ dependencies:
   #       url: https://ftp-master.debian.org/keys/archive-key-11.asc
   #       fingerprint: "1F89 983E 0081 FDE0 18F3 CC96 73A4 F27B 8DD4 7936"
 
+## for debmirror type, use double-slashes "//" prefix for root url when using shipped debmirror-modified
+
   - role: debmirror
     method: http
     source:
       host: ftp.debian.org
-      root: /debian
+      root: //debian
     target: '{{ mirror_base_path }}/debian'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
+    rsync_extras: none
     suites:
       - bullseye
       - bullseye-updates
@@ -38,9 +41,10 @@ dependencies:
     method: http
     source:
       host: security.debian.org
-      root: /debian-security
+      root: //debian-security
     target: '{{ mirror_base_path }}/debian-security'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
+    rsync_extras: none
     suites:
       - bullseye-security
     keys:

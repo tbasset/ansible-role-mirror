@@ -27,6 +27,7 @@
     loop_var: key
 
 - name: Delete any extra keys
+  become: true
   ansible.builtin.file:
     path: "{{ item }}"
     state: absent
