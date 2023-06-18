@@ -18,6 +18,7 @@ dependencies:
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
       - --dry-run
+      - --verbose
       - --nosource
       - --cleanup
       - --exclude='dbgsym'
@@ -56,6 +57,7 @@ dependencies:
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
       - --dry-run
+      - --verbose
       - --nosource
       - --cleanup
       - --exclude='dbgsym'
