@@ -1,21 +1,28 @@
 ---
+
 - hosts: localhost
+
   vars:
     mirror_base_path: /var/repos
     my_git_deploy_credentials: 'user:password'
+
   pre_tasks:
+
     - name: Stat mirrors directory
       ansible.builtin.stat:
         path: '{{ mirror_base_path }}'
       register: mirror_path_stat
+
     - name: Fail if mirrors directory does not exist
       ansible.builtin.fail:
         msg: 'Please pre-create the mirror target directory (currently set as {{ mirror_base_path }}'
       when: not mirror_path_stat.stat.exists
+
     - name: Make sure keyrings directory exists
       ansible.builtin.file:
         path: '{{ mirror_base_path }}/keyrings'
         state: directory
+
   roles:
     - { role: debian-mirrors, tags: ['debian'] }
     - { role: proxmox-mirrors, tags: ['proxmox'] }

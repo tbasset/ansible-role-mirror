@@ -1,5 +1,6 @@
 ---
 dependencies:
+
   # - role: debmirror
   #   source:
   #     host: rsync.mirrorservice.org
@@ -18,6 +19,7 @@ dependencies:
   #     - name: debian-11-buster
   #       url: https://ftp-master.debian.org/keys/archive-key-11.asc
   #       fingerprint: "1F89 983E 0081 FDE0 18F3 CC96 73A4 F27B 8DD4 7936"
+
   - role: debmirror
     method: http
     source:
@@ -29,12 +31,9 @@ dependencies:
       - bullseye
       - bullseye-updates
     keys:
-      - name: debian-10-buster
-        url: https://ftp-master.debian.org/keys/archive-key-10.asc
-        fingerprint: "80D1 5823 B7FD 1561 F9F7 BCDD DC30 D7C2 3CBB ABEE"
       - name: debian-11-buster
         url: https://ftp-master.debian.org/keys/archive-key-11.asc
-        fingerprint: "1F89 983E 0081 FDE0 18F3 CC96 73A4 F27B 8DD4 7936"
+
   - role: debmirror
     method: http
     source:
@@ -45,9 +44,5 @@ dependencies:
     suites:
       - bullseye-security
     keys:
-      - name: debian-10-buster-security
-        url: https://ftp-master.debian.org/keys/archive-key-10-security.asc
-        fingerprint: "5E61 B217 265D A980 7A23 C5FF 4DFA B270 CAA9 6DFA"
       - name: debian-11-buster-security
         url: https://ftp-master.debian.org/keys/archive-key-11-security.asc
-        fingerprint: "AC53 0D52 0F2F 3269 F5E9 8313 A484 4904 4AAD 5C5D"
