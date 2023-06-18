@@ -25,8 +25,8 @@
         state: directory
 
   roles:
-    - { role: debian-mirrors, tags: ['debian'] }
-    # - { role: proxmox-mirrors, tags: ['proxmox'] }
+    - { role: proxmox-mirrors, tags: ['proxmox'] }
+    # - { role: debian-mirrors, tags: ['debian'] }
     # - { role: centos-mirrors, tags: ['centos'] }
     # - { role: rocky-mirrors, tags: ['rocky'] }
     # - { role: git-mirrors, tags: ['git'] }
