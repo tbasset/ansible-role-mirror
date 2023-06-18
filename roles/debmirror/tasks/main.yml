@@ -13,12 +13,6 @@
     state: directory
   when: keys is defined
 
-# - name: Download keys for keyring
-#   include_tasks: fetch-key.yml
-#   loop: "{{ keys | default([]) }}"
-#   loop_control:
-#     loop_var: key
-
 - name: Download key {{ key.name }}
   become: true
   ansible.builtin.get_url:
