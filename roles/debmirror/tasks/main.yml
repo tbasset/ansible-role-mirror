@@ -40,7 +40,6 @@
   vars:
     argv_start:
       - debmirror
-      - --verbose
       - --precleanup # Remove old files before download - makes mirror inconsistent until debmirror finishes but copes better with limited space
       - --dist={{ ','.join(suites) }}
       - --section={{ ','.join(components) }}

@@ -17,7 +17,6 @@ dependencies:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
-      - "--dry-run"
       - "--exclude='(/.*dbgsym.*)'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
@@ -40,7 +39,6 @@ dependencies:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
-      - "--dry-run"
       - "--exclude='(/.*dbgsym.*)'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
