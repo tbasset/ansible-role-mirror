@@ -17,10 +17,9 @@ dependencies:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
-      - --verbose
       - --nosource
       - --no-check-gpg
-      - --exclude='(*-dbg_*|*-dbg-*|*-dbgsym_*)'
+      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
 
   - role: debmirror
     method: http
@@ -38,10 +37,9 @@ dependencies:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
-      - --verbose
       - --nosource
       - --no-check-gpg
-      - --exclude='(*-dbg_*|*-dbg-*|*-dbgsym_*)'
+      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
 
   # - role: debmirror
   #   method: http
