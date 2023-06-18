@@ -17,11 +17,25 @@ dependencies:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
+      - "--nosource"
       - "--exclude='(/.*dbgsym.*)'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
-      - "--exclude='(/pve-kernel-5.*)'"
-      - "--exclude='(/pve-headers-5.*)'"
+      - "--exclude='(/pve-kernel-5.10\\..*)'"
+      - "--exclude='(/pve-headers-5.10\\..*)'"
+      - "--exclude='(/pve-kernel-5.11\\..*)'"
+      - "--exclude='(/pve-headers-5.11\\..*)'"
+      - "--exclude='(/pve-kernel-5.13\\..*)'"
+      - "--exclude='(/pve-headers-5.13\\..*)'"
+      - "--exclude='(/pve-kernel-5.15\\..*)'"
+      - "--exclude='(/pve-headers-5.15\\..*)'"
+      - "--exclude='(/pve-kernel-5.\\..*)'"
+      - "--exclude='(/pve-headers-5.\\..*)'"
+      - "--exclude='(pve-firmware_3.5-6_.*)'"
+      - "--exclude='(pve-firmware_3.6-1_.*)'"
+      - "--exclude='(pve-firmware_3.6-2_.*)'"
+      - "--exclude='(pve-firmware_3.6-3_.*)'"
+      - "--exclude='(pve-firmware_3.6-4_.*)'"
 
   - role: debmirror
     method: http
@@ -39,11 +53,20 @@ dependencies:
       - name: proxmox-keyring
         url: https://enterprise.proxmox.com/debian/proxmox-release-bullseye.gpg
     extra_options:
+      - "--nosource"
       - "--exclude='(/.*dbgsym.*)'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
-      - "--exclude='(/pve-kernel-5.*)'"
-      - "--exclude='(/pve-headers-5.*)'"
+      - "--exclude='(/pve-kernel-5.10\\..*)'"
+      - "--exclude='(/pve-headers-5.10\\..*)'"
+      - "--exclude='(/pve-kernel-5.11\\..*)'"
+      - "--exclude='(/pve-headers-5.11\\..*)'"
+      - "--exclude='(/pve-kernel-5.13\\..*)'"
+      - "--exclude='(/pve-headers-5.13\\..*)'"
+      - "--exclude='(/pve-kernel-5.15\\..*)'"
+      - "--exclude='(/pve-headers-5.15\\..*)'"
+      - "--exclude='(/pve-kernel-5.\\..*)'"
+      - "--exclude='(/pve-headers-5.\\..*)'"
       - "--exclude='(/pve-kernel-6\\.1.*)'"
 
   # - role: debmirror
