@@ -49,6 +49,7 @@
   with_fileglob: "{{ keyring_directory }}/keys.d/*.key"
 
 - name: Run debmirror
+  become: true
   vars:
     argv_start:
       - debmirror
