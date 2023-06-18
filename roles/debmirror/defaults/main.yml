@@ -22,4 +22,4 @@ architectures:
 
 # Extra options (include/exclude mostly)
 extra_options:
-  - "--verbose"
+  - --verbose
