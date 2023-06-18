@@ -19,7 +19,6 @@ dependencies:
     extra_options:
       - "--nosource"
       - "--cleanup"
-      - "--limit-priority=required"
       - "--exclude='.*-dbgsym_.*'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
@@ -57,7 +56,6 @@ dependencies:
     extra_options:
       - "--nosource"
       - "--cleanup"
-      - "--limit-priority=required"
       - "--exclude='.*-dbgsym_.*'"
       - "--exclude='(/.*dbg_.*)'"
       - "--exclude='(/.*debug_.*)'"
