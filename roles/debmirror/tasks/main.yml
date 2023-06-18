@@ -7,14 +7,12 @@
     state: directory
 
 - name: Make keys directory
-  become: true
   ansible.builtin.file:
     path: "{{ keyring_directory }}/keys.d"
     state: directory
   when: keys is defined
 
 - name: Download key {{ key.name }}
-  become: true
   ansible.builtin.get_url:
     dest: "{{ keyring_directory }}/keys.d/{{ key.name }}.key"
     url: "{{ key.url }}"
@@ -24,7 +22,6 @@
     loop_var: key
 
 - name: Delete any extra keys
-  become: true
   ansible.builtin.file:
     path: "{{ item }}"
     state: absent
@@ -32,18 +29,15 @@
   when: item.split('/')[-1].split('.')[0] not in keys | map(attribute='name') | list
 
 - name: Delete old keyring
-  become: true
   ansible.builtin.file:
     path: "{{ keyring_directory }}/keyring.gpg"
     state: absent
 
 - name: Make keyring
-  become: true
   ansible.builtin.shell: gpg --no-default-keyring --keyring {{ keyring_directory }}/keyring.gpg --import {{ item }}
   with_fileglob: "{{ keyring_directory }}/keys.d/*.key"
 
 - name: Run debmirror
-  become: true
   vars:
     argv_start:
       - debmirror
@@ -59,7 +53,6 @@
       - --keyring={{ keyring_directory }}/keyring.gpg
       - --slow-cpu
       - --i18n
-      - --dry-run
     argv_end:
       - "{{ extra_options | join (' ') }}"
       - "{{ target }}"
