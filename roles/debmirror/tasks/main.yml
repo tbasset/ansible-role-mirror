@@ -48,7 +48,6 @@
       - --host={{ source.host }}
       - --root={{ source.root }}
       - --keyring={{ keyring_directory }}/keyring.gpg
-      - --i18n
       - --postcleanup # Remove old files after download - makes mirror consistent while debmirror runs but consume more space
     argv_end:
       - "{{ target }}"

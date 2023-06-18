@@ -21,10 +21,11 @@ dependencies:
       - --verbose
       - --nosource
       - --cleanup
+      - --no-check-gpg
       - --exclude='dbgsym'
       - --exclude='-dbgsym'
       - --exclude='-dbgsym_'
-      - --exclude='.*dbgsym.*'
+      - --exclude='/.*dbgsym.*'
       - --exclude='(/.*dbg_.*)'
       - --exclude='(/.*debug_.*)'
       - --exclude='(/pve-kernel-5.10\..*)'
@@ -63,10 +64,11 @@ dependencies:
       - --verbose
       - --nosource
       - --cleanup
+      - --no-check-gpg
       - --exclude='dbgsym'
       - --exclude='-dbgsym'
       - --exclude='-dbgsym_'
-      - --exclude='.*dbgsym.*'
+      - --exclude='/.*dbgsym.*'
       - --exclude='(/.*dbg_.*)'
       - --exclude='(/.*debug_.*)'
       - --exclude='(/pve-kernel-5.10\..*)'
