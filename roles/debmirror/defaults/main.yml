@@ -23,6 +23,3 @@ architectures:
 # Extra options (include/exclude mostly)
 extra_options:
   - "--dry-run"
-  - "--exclude='(/.*dbgsym.*)'"
-  - "--exclude='(/.*dbg_.*)'"
-  - "--exclude='(/.*debug_.*)'"
