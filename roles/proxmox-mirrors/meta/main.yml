@@ -20,7 +20,7 @@ dependencies:
       - "--verbose"
       - "--nosource"
       - "--cleanup"
-      - "--exclude='-dbgsym'"
+      - "--exclude='/.*dbgsym.*/'"
       - "--exclude='-dbg'"
       - "--exclude='(.*debug_.*)'"
       - "--exclude='(pve-kernel-5.10\\..*)'"
