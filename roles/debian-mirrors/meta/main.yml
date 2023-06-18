@@ -24,7 +24,7 @@ dependencies:
     method: http
     source:
       host: ftp.debian.org
-      root: debian
+      root: /debian
     target: '{{ mirror_base_path }}/debian'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
     suites:
@@ -38,7 +38,7 @@ dependencies:
     method: http
     source:
       host: security.debian.org
-      root: debian-security
+      root: /debian-security
     target: '{{ mirror_base_path }}/debian-security'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
     suites:
