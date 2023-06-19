@@ -26,7 +26,11 @@
 
   roles:
     - { role: proxmox-mirrors, tags: ['proxmox'] }
-    # - { role: debian-mirrors, tags: ['debian'] }
+    - { role: debian-mirrors, tags: ['debian'] }
+    # - { role: hwraid-mirrors, tags: ['hwraid'] }
+    # - { role: hpelinux-mirrors, tags: ['hpelinux'] }
+    # - { role: foreman-mirrors, tags: ['foreman'] }
+    # - { role: puppetlabs-mirrors, tags: ['puppetlabs'] }
     # - { role: centos-mirrors, tags: ['centos'] }
     # - { role: rocky-mirrors, tags: ['rocky'] }
     # - { role: git-mirrors, tags: ['git'] }
