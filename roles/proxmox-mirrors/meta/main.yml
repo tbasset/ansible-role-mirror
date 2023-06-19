@@ -21,6 +21,8 @@ dependencies:
       - --no-check-gpg
       - --diff=none
       - --i18n 
+      - --exclude='(/.*-dbg-.*)'
+      - --exclude='(/.*-dbg_.*)'
       - --exclude='(/.*-dbgsym_.*)'
       - --exclude='(/Translation-.*\.bz2$)' 
       - --include='(/Translation-en.*\.bz2$)'
@@ -46,6 +48,8 @@ dependencies:
       - --no-check-gpg
       - --diff=none
       - --i18n 
+      - --exclude='(/.*-dbg-.*)'
+      - --exclude='(/.*-dbg_.*)'
       - --exclude='(/.*-dbgsym_.*)'
       - --exclude='(/Translation-.*\.bz2$)' 
       - --include='(/Translation-en.*\.bz2$)'
