@@ -22,9 +22,9 @@ dependencies:
       - --diff=none
       - --i18n 
       - --exclude='/.*-dbgsym_.*'
-      - --exclude '/Translation-.*\.bz2$' 
-      - --include '/Translation-en.*\.bz2$'
-      - --include '/Translation-fr.*\.bz2$'
+      - --exclude='/Translation-.*\.bz2$' 
+      - --include='/Translation-en.*\.bz2$'
+      - --include='/Translation-fr.*\.bz2$'
 
   - role: debmirror
     method: http
@@ -47,9 +47,9 @@ dependencies:
       - --diff=none
       - --i18n 
       - --exclude='/.*-dbgsym_.*'
-      - --exclude '/Translation-.*\.bz2$' 
-      - --include '/Translation-en.*\.bz2$'
-      - --include '/Translation-fr.*\.bz2$'
+      - --exclude='/Translation-.*\.bz2$' 
+      - --include='/Translation-en.*\.bz2$'
+      - --include='/Translation-fr.*\.bz2$'
 
 
 #      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
