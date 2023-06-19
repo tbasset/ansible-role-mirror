@@ -19,6 +19,7 @@ dependencies:
     extra_options:
       - --nosource
       - --no-check-gpg
+      - --diff=none
       - --exclude-deb-section='^debug$'
       - --exclude='(-dbg_|-dbg-|-dbgsym_)'
       - --exclude='(^.*dbgsym.*$)'
@@ -41,6 +42,7 @@ dependencies:
     extra_options:
       - --nosource
       - --no-check-gpg
+      - --diff=none
       - --exclude-deb-section='^debug$'
       - --exclude='(-dbg_|-dbg-|-dbgsym_)'
       - --exclude='(^.*dbgsym.*$)'
