@@ -39,7 +39,7 @@
 - name: Run debmirror
   vars:
     argv_start:
-      - debmirror
+      - /usr/bin/debmirror
       - --method={{ method }}
       - --dist={{ ','.join(suites) }}
       - --section={{ ','.join(components) }}
@@ -48,8 +48,6 @@
       - --host={{ source.host }}
       - --root={{ source.root }}
       - --keyring={{ keyring_directory }}/keyring.gpg
-      - --getcontents
-      - --precleanup
     argv_end:
       - "{{ target }}"
   ansible.builtin.command:

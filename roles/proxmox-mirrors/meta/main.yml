@@ -6,7 +6,7 @@ dependencies:
     rsync_extras: ['none']
     source:
       host: download.proxmox.com
-      root: //debian/pve
+      root: /debian/pve
     target: '{{ mirror_base_path }}/proxmox'
     keyring_directory: '{{ mirror_base_path }}/keyrings/proxmox'
     suites:
@@ -21,17 +21,17 @@ dependencies:
       - --no-check-gpg
       - --diff=none
       - --i18n 
-      - --exclude='/.*-dbgsym_.*'
-      - --exclude='/Translation-.*\.bz2$' 
-      - --include='/Translation-en.*\.bz2$'
-      - --include='/Translation-fr.*\.bz2$'
+      - --exclude='(/.*-dbgsym_.*)'
+      - --exclude='(/Translation-.*\.bz2$)' 
+      - --include='(/Translation-en.*\.bz2$)'
+      - --include='(/Translation-fr.*\.bz2$)'
 
   - role: debmirror
     method: http
     rsync_extras: ['none']
     source:
       host: download.proxmox.com
-      root: //debian/pbs
+      root: /debian/pbs
     target: '{{ mirror_base_path }}/proxmox-pbs'
     keyring_directory: '{{ mirror_base_path }}/keyrings/proxmox-pbs'
     suites:
@@ -46,10 +46,10 @@ dependencies:
       - --no-check-gpg
       - --diff=none
       - --i18n 
-      - --exclude='/.*-dbgsym_.*'
-      - --exclude='/Translation-.*\.bz2$' 
-      - --include='/Translation-en.*\.bz2$'
-      - --include='/Translation-fr.*\.bz2$'
+      - --exclude='(/.*-dbgsym_.*)'
+      - --exclude='(/Translation-.*\.bz2$)' 
+      - --include='(/Translation-en.*\.bz2$)'
+      - --include='(/Translation-fr.*\.bz2$)'
 
 
 #      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
