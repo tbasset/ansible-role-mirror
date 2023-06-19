@@ -1,0 +1,30 @@
+---
+dependencies:
+
+  - role: debmirror
+    method: http
+    rsync_extras: ['none']
+    source:
+      host: deb.theforeman.org
+      root: /
+    target: '{{ mirror_base_path }}/foreman'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/foreman'
+    suites:
+      - bullseye
+      - plugins
+    components:
+      - 3.2
+      - 3.4
+      - 3.5
+      - 3.6
+    keys:
+      - name: foreman-keyring
+        url: https://deb.theforeman.org/pubkey.gpg
+    extra_options:
+      - --nosource
+      - --no-check-gpg
+      - --diff=none
+      - --i18n 
+      - --exclude='(/.*-dbg-.*)'
+      - --exclude='(/.*-dbg_.*)'
+      - --exclude='(/.*-dbgsym_.*)'

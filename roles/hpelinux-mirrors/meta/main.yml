@@ -1,0 +1,26 @@
+---
+dependencies:
+
+  - role: debmirror
+    method: http
+    rsync_extras: ['none']
+    source:
+      host: downloads.linux.hpe.com
+      root: /sdr/repo/mcp/debian
+    target: '{{ mirror_base_path }}/hpelinux'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/hpelinux'
+    suites:
+      - bullseye/current
+    components:
+      - non-free
+    keys:
+      - name: hpelinux-keyring
+        url: https://downloads.linux.hpe.com/sdr/repo/mcp/hpPublicKey2048_key1.pub
+    extra_options:
+      - --nosource
+      - --no-check-gpg
+      - --diff=none
+      - --i18n 
+      - --exclude='(/.*-dbg-.*)'
+      - --exclude='(/.*-dbg_.*)'
+      - --exclude='(/.*-dbgsym_.*)'

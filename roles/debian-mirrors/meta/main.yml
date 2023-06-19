@@ -41,6 +41,11 @@ dependencies:
       - --nosource
       - --no-check-gpg
       - --diff=none
+      - --exclude='(/.*dbgsym.*)'
+      - --exclude='(/.*dbg_.*)'
+      - --exclude='(/.*debug_.*)'
+      - --exclude='(.*debian.*reference.*)'
+      - --exclude='(/linux-image-.*-dbg.*)'
   
   - role: debmirror
     method: http

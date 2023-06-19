@@ -1,0 +1,26 @@
+---
+dependencies:
+
+  - role: debmirror
+    method: http
+    rsync_extras: ['none']
+    source:
+      host: hwraid.le-vert.net
+      root: /debian
+    target: '{{ mirror_base_path }}/hwraid'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/hwraid'
+    suites:
+      - bullseye
+    components:
+      - main
+    keys:
+      - name: hwraid-keyring
+        url: https://hwraid.le-vert.net/debian/hwraid.le-vert.net.gpg.key
+    extra_options:
+      - --nosource
+      - --no-check-gpg
+      - --diff=none
+      - --i18n 
+      - --exclude='(/.*-dbg-.*)'
+      - --exclude='(/.*-dbg_.*)'
+      - --exclude='(/.*-dbgsym_.*)'
