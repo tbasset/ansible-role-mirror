@@ -20,7 +20,7 @@ dependencies:
       - --nosource
       - --no-check-gpg
       - --diff=none
-      - --exclude='(^.*dbgsym.*$)'
+      - --exclude='(.*dbgsym.*)'
 
   - role: debmirror
     method: http
@@ -41,7 +41,7 @@ dependencies:
       - --nosource
       - --no-check-gpg
       - --diff=none
-      - --exclude='(^.*dbgsym.*$)'
+      - --exclude='(.*dbgsym.*)'
 
 
 #      - --exclude='(-dbg_|-dbg-|-dbgsym_)'
