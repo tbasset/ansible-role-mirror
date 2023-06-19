@@ -36,6 +36,7 @@
   ansible.builtin.shell: gpg --no-default-keyring --keyring {{ keyring_directory }}/keyring.gpg --import {{ item }}
   with_fileglob: "{{ keyring_directory }}/keys.d/*.key"
 
+# command that uses non-posix shell-isms (in this example /bin/sh doesn't handle redirection and wildcards together but bash does)
 - name: Run debmirror
   vars:
     argv_start:
@@ -57,8 +58,6 @@
   args:
     executable: /bin/bash
 
-#   ansible.builtin.command:
-#     argv: "{{ argv_start + extra_options + argv_end }}"
 #      - --slow-cpu # self explanatory
 #      - --precleanup # Remove old files before download - makes mirror inconsistent until debmirror finishes but copes better with limited space
 #      - --postcleanup # Remove old files after download - makes mirror consistent while debmirror runs but consume more space
