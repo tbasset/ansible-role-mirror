@@ -2,25 +2,6 @@
 
 dependencies:
 
-  # - role: debmirror
-  #   source:
-  #     host: rsync.mirrorservice.org
-  #     root: ftp.debian.org/debian
-  #   target: '{{ mirror_base_path }}/debian'
-  #   keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
-  #   suites:
-  #     - buster
-  #     - buster-updates
-  #     - bullseye
-  #     - bullseye-updates
-  #   keys:
-  #     - name: debian-10-buster
-  #       url: https://ftp-master.debian.org/keys/archive-key-10.asc
-  #       fingerprint: "80D1 5823 B7FD 1561 F9F7 BCDD DC30 D7C2 3CBB ABEE"
-  #     - name: debian-11-buster
-  #       url: https://ftp-master.debian.org/keys/archive-key-11.asc
-  #       fingerprint: "1F89 983E 0081 FDE0 18F3 CC96 73A4 F27B 8DD4 7936"
-
   # for debmirror type, use double-slashes "//" prefix for root url when using shipped debmirror-modified
 
   - role: debmirror
@@ -632,3 +613,19 @@ dependencies:
       - --include='(/Translation-fr)'
       - --include='(/Translation-fr.*\\.bz2$)'
 
+  # - role: debmirror
+  #   source:
+  #     host: rsync.mirrorservice.org
+  #     root: ftp.debian.org/debian
+  #   target: '{{ mirror_base_path }}/debian'
+  #   keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
+  #   suites:
+  #     - buster
+  #     - buster-updates
+  #     - bullseye
+  #     - bullseye-updates
+  #   keys:
+  #     - name: debian-10-buster
+  #       url: https://ftp-master.debian.org/keys/archive-key-10.asc
+  #     - name: debian-11-buster
+  #       url: https://ftp-master.debian.org/keys/archive-key-11.asc
