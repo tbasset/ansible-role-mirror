@@ -50,9 +50,15 @@
       - --keyring={{ keyring_directory }}/keyring.gpg
     argv_end:
       - "{{ target }}"
-  ansible.builtin.command:
-    argv: "{{ argv_start + extra_options + argv_end }}"
+  ansible.builtin.shell: |
+    "{{ argv_start | join(' ') }}" \
+    "{{ extra_options  | join(' ') }}" \
+    "{{ argv_end  | join(' ') }}"
+  argv:
+    executable: /bin/bash
 
+#   ansible.builtin.command:
+#     argv: "{{ argv_start + extra_options + argv_end }}"
 #      - --slow-cpu # self explanatory
 #      - --precleanup # Remove old files before download - makes mirror inconsistent until debmirror finishes but copes better with limited space
 #      - --postcleanup # Remove old files after download - makes mirror consistent while debmirror runs but consume more space
