@@ -6,7 +6,7 @@ dependencies:
     rsync_extras: ['none']
     source:
       host: downloads.linux.hpe.com
-      root: /sdr/repo/mcp/debian
+      root: //sdr/repo/mcp/debian
     target: '{{ mirror_base_path }}/hpelinux'
     keyring_directory: '{{ mirror_base_path }}/keyrings/hpelinux'
     suites:
