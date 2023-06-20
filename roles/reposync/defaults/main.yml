@@ -2,5 +2,3 @@
 delete: true
 newest_only: true
 architecture: x86_64
-extra_options:
-  - --verbose

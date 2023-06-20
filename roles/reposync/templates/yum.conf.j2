@@ -16,6 +16,6 @@ sslverify={{ '1' if repo.sslverify | default(true) else '0' }}
 metadata_expire={{ repo.metadata_expire }}
 {%   endif %}
 {%   if repo.extra_options | default(false) %}
-{{ extra_options | join ('\n') }}
+{{ repo.extra_options | join ('\n') }}
 {%   endif %}
 {% endfor %}
