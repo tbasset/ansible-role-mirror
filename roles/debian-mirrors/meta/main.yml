@@ -15,7 +15,7 @@ dependencies:
     suites:
       - bullseye-security
     keys:
-      - name: debian-11-buster-security
+      - name: debian-11-bullseye-security
         url: https://ftp-master.debian.org/keys/archive-key-11-security.asc
     extra_options: 
       - --verbose
@@ -40,7 +40,7 @@ dependencies:
       - bullseye
       - bullseye-updates
     keys:
-      - name: debian-11-buster
+      - name: debian-11-bullseye
         url: https://ftp-master.debian.org/keys/archive-key-11.asc
     extra_options: 
       - --verbose
