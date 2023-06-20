@@ -10,26 +10,6 @@
     src: yum.conf.j2
     dest: '{{ yum_conf }}'
 
-- name: Check if comps.xml exists
-  ansible.builtin.stat:
-    path: '{{ repo }}/comps.xml'
-  register: comps_xml_stat
-  loop: '{{ repos }}'
-  loop_control:
-    repo: '{{ target }}/{{ item.name }}'
-
-- name: Run createrepo
-  ansible.builtin.command:
-    cmd: >
-      createrepo
-      --update
-      {{ "-g" if comps_xml_stat.stat.exists else "" }}
-      {{ repo + "/comps.xml" if comps_xml_stat.stat.exists else ""}}
-      {{ repo }}
-  loop: '{{ repos }}'
-  loop_control:
-    repo: '{{ target }}/{{ item.name }}'
-
 - name: Run reposync
   ansible.builtin.command:
     # My old sync script had --doanloadcomps and --download-metadata

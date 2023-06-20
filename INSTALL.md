@@ -62,5 +62,5 @@ apt-get -qy install debmirror
 ```
 
 ```bash
-apt-get -qy install yum-utils rpm-common=4.14.2.1+dfsg1-1 rpm=4.14.2.1+dfsg1-1 rpm2cpio=4.14.2.1+dfsg1-1 debugedit=4.14.2.1+dfsg1-1
+apt-get -qy install yum-utils createrepo rpm-common=4.14.2.1+dfsg1-1 rpm=4.14.2.1+dfsg1-1 rpm2cpio=4.14.2.1+dfsg1-1 debugedit=4.14.2.1+dfsg1-1
 ```
