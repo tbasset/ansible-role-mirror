@@ -63,3 +63,8 @@ argument_specs:
           metadata_expire:
              type: int
              description: Frequency (in seconds) with which yum metadata will expire
+          extra_options:
+            type: list
+            elements: str
+            required: false
+            description: The list of extra options like include/exclude packages
