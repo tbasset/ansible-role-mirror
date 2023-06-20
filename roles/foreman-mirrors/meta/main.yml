@@ -13,8 +13,6 @@ dependencies:
       - bullseye
       - plugins
     components:
-      - '3.2'
-      - '3.4'
       - '3.5'
       - '3.6'
     keys:
