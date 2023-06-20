@@ -28,7 +28,7 @@ export HTTPS_PROXY=<http://127.0.0.1:3128/>
 
 # for Debian 11 (bullseye) deployement :
 
-some APT Pinning to fix yum-utils package broken since oldstable
+you'll need some APT Pinning for yum-utils to install (package broken since buster/oldstable)
 
 ```bash
 cat > /etc/apt/sources.list <EOF
@@ -39,7 +39,6 @@ deb <http://ftp.fr.debian.org:80/debian> buster-updates main
 EOF
 ```
 
-# you'll need some apt pinning for yum-utils to install
 ```bash
 cat > /etc/apt/preferences <EOF
 Package: *
@@ -55,11 +54,12 @@ Package:*
 Pin: release o=Debian,a=buster-updates
 Pin-Priority: 890
 EOF
+```
+
+```bash
 apt-get -qy update
 apt-get -qy install debmirror
 ```
-
-# then some version pinning for rpm rpm-common etc
 
 ```bash
 apt-get -qy install yum-utils rpm-common=4.14.2.1+dfsg1-1 rpm=4.14.2.1+dfsg1-1 rpm2cpio=4.14.2.1+dfsg1-1 debugedit=4.14.2.1+dfsg1-1
