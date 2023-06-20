@@ -1,7 +1,6 @@
 # Ansible playbook to create mirrors
 A collection of roles and a playbook that will create mirrors for various Linux distributions.
 
-| /var/repos | mirrored repo |
 |---|---|
 | /var/repos/centos-7-os | CentOS 7 OS |
 | /var/repos/centos-7-updates | CentOS 7 updates |
