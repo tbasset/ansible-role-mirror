@@ -24,3 +24,4 @@ dependencies:
       - --exclude='(/.*-dbg-.*)'
       - --exclude='(/.*-dbg_.*)'
       - --exclude='(/.*-dbgsym_.*)'
+      - --exclude='(/pdk_.*)'
