@@ -54,7 +54,7 @@
   ansible.builtin.shell: |
     {{ argv_start | join(' ') }} \
     {% if proxy %} {{ '--proxy=' + proxy + ' \' }} {% else %} '' {% endif %}
-    {{ '--proxy=' + proxy + ' \' if (proxy) else '' }}
+    {{ '--proxy=' + proxy + ' \\' if (proxy) else '' }}
     {{ extra_options | join(' ') }} \
     {{ argv_end  | join(' ') }}
   args:
