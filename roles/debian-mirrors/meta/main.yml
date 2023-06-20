@@ -27,7 +27,9 @@ dependencies:
       - --exclude='(/.*debug_.*)'
       - --exclude='(.*debian.*reference.*)'
       - --exclude='(/linux-image-.*-dbg.*)'
-  
+      - --exclude='(/linux-source-.*)'
+      - --exclude='(/linux-image-.*-unsigned.*)'
+
   - role: debmirror
     method: http
     source:
