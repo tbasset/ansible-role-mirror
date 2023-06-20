@@ -53,7 +53,7 @@
       - "{{ target }}"
   ansible.builtin.shell: |
     {{ argv_start | join(' ') }} \
-    {{ '--proxy='proxy' \' \' if proxy is defined else '' }}
+    {{ '--proxy='proxy' \' \' if (proxy) else '' }}
     {{ extra_options | join(' ') }} \
     {{ argv_end  | join(' ') }}
   args:
