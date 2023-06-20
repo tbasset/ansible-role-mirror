@@ -26,7 +26,9 @@ export HTTPS_PROXY=<http://127.0.0.1:3128/>
 .venv/bin/ansible-playbook site.yml -K -v
 ```
 
-# for Debian 11 (bullseye) deployement, yum-utils package is broken since oldstable
+# for Debian 11 (bullseye) deployement :
+
+some APT Pinning to fix yum-utils package broken since oldstable
 
 ```bash
 cat > /etc/apt/sources.list <EOF
