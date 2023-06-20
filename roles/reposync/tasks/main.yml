@@ -16,7 +16,7 @@
     # hard-coded - not making them variables until I need to turn them
     # off.
     cmd: >
-      reposync
+      /usr/bin/reposync
       --arch={{ architecture }}
       --config={{ yum_conf }}
       --download_path={{ target }}
