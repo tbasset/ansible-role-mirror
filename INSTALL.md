@@ -1,4 +1,5 @@
-# to install you need python3, pip, virtualenv
+# Debian 11 (bullseye) install :
+to install you need python3, pip, virtualenv
 
 ```bash
 apt-get -qy install python3-pip virtualenv
@@ -16,8 +17,6 @@ run
 ```bash
 .venv/bin/ansible-playbook site.yml -v
 ```
-
-# for Debian 11 (bullseye) deployement :
 
 you'll need some APT Pinning for yum-utils to install (package broken since buster/oldstable)
 

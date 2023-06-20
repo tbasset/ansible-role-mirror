@@ -6,7 +6,7 @@
 
   vars:
     mirror_base_path: /var/repos
-    # proxy: http://172.16.202.253:3128/
+    # proxy: http://127.0.0.1:3128/
     # my_git_deploy_credentials: 'user:password'
 
   pre_tasks:
