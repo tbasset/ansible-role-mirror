@@ -4,14 +4,14 @@
 apt-get -qy install python3-pip virtualenv
 ```
 
-Create a virtualenv
+create virtualenv
 
 ```bash
 virtualenv -p python3 .venv
 .venv/bin/pip3 install -r requirement.txt
 ```
 
-# to enable http_proxy
+to enable proxy
 
 ```bash
 export http_proxy=<http://127.0.0.1:3128/>
@@ -20,7 +20,7 @@ export HTTP_PROXY=<http://127.0.0.1:3128/>
 export HTTPS_PROXY=<http://127.0.0.1:3128/>
 ```
 
-# to run
+run
 
 ```bash
 .venv/bin/ansible-playbook site.yml -K -v
