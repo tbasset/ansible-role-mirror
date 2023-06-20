@@ -11,6 +11,9 @@ A collection of roles and a playbook that will create mirrors for various Linux 
 | /var/repos/rocky-8-extras| Rocky Linux 8 extras |
 | /var/repos/debian | Debian 11 (bullseye,bullseye-updates) |
 | /var/repos/debian-security | Debian 11 (bullseye-security) |
+| /var/repos/proxmox | Proxmox (Debian apt repo)
+| /var/repos/proxmox-pbs | Proxmox Backup Server (Debian apt repo)
+| /var/repos/proxmox-pbs-client | Proxmox Backup Server client (Debian apt repo)
 | /var/repos/hpelinux | HPE Software Delivery Repository (Debian apt repo) |
 | /var/repos/hwraid | HWraid for GNU/Linux (Debian apt repo) (https://hwraid.le-vert.net/) |
 | /var/repos/puppetlabs | Puppetlabs (Debian apt repo) |
