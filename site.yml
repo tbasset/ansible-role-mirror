@@ -25,12 +25,12 @@
         state: directory
 
   roles:
+    # - { role: centos-mirrors, tags: ['centos','never'] }
+    # - { role: rocky-mirrors, tags: ['rocky','never'] }
     - { role: debian-mirrors, tags: ['debian'] }
     - { role: proxmox-mirrors, tags: ['proxmox'] }
     - { role: hwraid-mirrors, tags: ['hwraid'] }
     - { role: hpelinux-mirrors, tags: ['hpelinux'] }
     - { role: foreman-mirrors, tags: ['foreman'] }
     - { role: puppetlabs-mirrors, tags: ['puppetlabs','never'] }
-#    - { role: centos-mirrors, tags: ['centos'] }
-#    - { role: rocky-mirrors, tags: ['rocky'] }
-#    - { role: git-mirrors, tags: ['git'] }
+    # - { role: git-mirrors, tags: ['git','never'] }
