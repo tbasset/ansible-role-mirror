@@ -2,12 +2,12 @@
 
 - hosts: localhost
   gather_facts: false
-  become: true
+  # become: true
 
   vars:
-    proxy: http://172.16.202.253:3128/
     mirror_base_path: /var/repos
-    my_git_deploy_credentials: 'user:password'
+    # proxy: http://172.16.202.253:3128/
+    # my_git_deploy_credentials: 'user:password'
 
   pre_tasks:
 
