@@ -11,19 +11,10 @@ virtualenv -p python3 .venv
 .venv/bin/pip3 install -r requirement.txt
 ```
 
-to enable proxy
-
-```bash
-export http_proxy=<http://127.0.0.1:3128/>
-export https_proxy=<http://127.0.0.1:3128/>
-export HTTP_PROXY=<http://127.0.0.1:3128/>
-export HTTPS_PROXY=<http://127.0.0.1:3128/>
-```
-
 run
 
 ```bash
-.venv/bin/ansible-playbook site.yml -K -v
+.venv/bin/ansible-playbook site.yml -v
 ```
 
 # for Debian 11 (bullseye) deployement :
