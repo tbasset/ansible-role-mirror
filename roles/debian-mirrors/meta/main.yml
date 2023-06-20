@@ -34,7 +34,7 @@ dependencies:
       host: ftp.debian.org
       root: //debian
     target: '{{ mirror_base_path }}/debian'
-    keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
+    keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
     rsync_extras: none
     suites:
       - bullseye
