@@ -18,6 +18,9 @@
     repo: '{{ target }}/{{ item.name }}'
   loop: '{{ repos }}'
 
+- debug:
+    vars: '{{ comps_xml_stat }}'
+
 - name: Run createrepo
   ansible.builtin.command:
     cmd: >
