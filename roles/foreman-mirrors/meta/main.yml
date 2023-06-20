@@ -13,10 +13,10 @@ dependencies:
       - bullseye
       - plugins
     components:
-      - 3.2
-      - 3.4
-      - 3.5
-      - 3.6
+      - '3.2'
+      - '3.4'
+      - '3.5'
+      - '3.6'
     keys:
       - name: foreman-keyring
         url: https://deb.theforeman.org/pubkey.gpg
