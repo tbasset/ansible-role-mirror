@@ -26,8 +26,8 @@
     cmd: >
       createrepo
       --update
-      {{ "-g" if comps_xml_stat.stat.define else "" }}
-      {{ repo + "/comps.xml" if comps_xml_stat.stat.define else ""}}
+      {{ "-g" if comps_xml_stat.stat.defined else "" }}
+      {{ repo + "/comps.xml" if comps_xml_stat.stat.defined else ""}}
       {{ repo }}
   vars:
     repo: '{{ target }}/{{ item.name }}'
