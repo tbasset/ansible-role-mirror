@@ -14,9 +14,9 @@
   ansible.builtin.stat:
     path: '{{ repo }}/comps.xml'
   register: comps_xml_stat
-  vars:
-    repo: '{{ target }}/{{ item.name }}'
   loop: '{{ repos }}'
+  loop_control:
+    repo: '{{ target }}/{{ item.name }}'
 
 - name: Run createrepo
   ansible.builtin.command:
@@ -26,9 +26,9 @@
       {{ "-g" if comps_xml_stat.stat.exists else "" }}
       {{ repo + "/comps.xml" if comps_xml_stat.stat.exists else ""}}
       {{ repo }}
-  vars:
-    repo: '{{ target }}/{{ item.name }}'
   loop: '{{ repos }}'
+  loop_control:
+    repo: '{{ target }}/{{ item.name }}'
 
 - name: Run reposync
   ansible.builtin.command:
