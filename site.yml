@@ -36,3 +36,11 @@
     - { role: foreman-mirrors, tags: ['foreman'] }
     - { role: puppetlabs-mirrors, tags: ['puppetlabs','never'] }
     # - { role: git-mirrors, tags: ['git','never'] }
+
+  # tasks:
+  # apt: apache2
+  # apache2: vhost:80 /var/repos
+  # apache2: mod_autoindex
+  # file: /var/repos/HEADER.html
+  # file: /var/repos/README.html
+  # service: restart apache2
