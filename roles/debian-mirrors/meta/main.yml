@@ -41,6 +41,11 @@ dependencies:
     suites:
       - bullseye
       - bullseye-updates
+    components:
+      - 'main'
+      - 'main/debian-installer'
+      - 'contrib'
+      - 'non-free'
     keys:
       - name: debian-11-bullseye
         url: https://ftp-master.debian.org/keys/archive-key-11.asc
