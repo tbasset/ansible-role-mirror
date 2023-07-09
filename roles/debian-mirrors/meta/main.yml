@@ -54,6 +54,8 @@ dependencies:
       - --nosource
       - --no-check-gpg
       - --diff=none
+      - --di-dist=bullseye
+      - --di-arch=amd64
       - --exclude-deb-section=comm
       - --exclude-deb-section=devel
       - --exclude-deb-section=doc
