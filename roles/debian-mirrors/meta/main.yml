@@ -52,6 +52,7 @@ dependencies:
     extra_options: 
       - --verbose
       - --nosource
+      - --i18n
       - --no-check-gpg
       - --diff=none
       - --di-dist=bullseye
