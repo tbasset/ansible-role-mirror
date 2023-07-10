@@ -616,8 +616,10 @@ dependencies:
       - --include='(manpages-dev)' 
       - --include='(/debian-installer-.*)'
       - --include='(/debmirror.*)'
-      - --include='(/Translation-en.*)'
-      - --include='(/Translation-fr.*)'
+      - --include='(/Translation-en)'
+      - --include='(/Translation-en\.bz2)'
+      - --include='(/Translation-fr)'
+      - --include='(/Translation-fr\.bz2)'
 
   # - role: debmirror
   #   source:
