@@ -86,7 +86,7 @@ dependencies:
       - --exclude-deb-section=x11
       - --exclude-deb-section=xorg
       - --exclude-deb-section=zope
-      - --exclude='/Translation-.*\\.bz2$'
+      - --exclude='/Translation-.*'
       - --exclude='(kfreebsd-.*)'
       - --exclude='(/.*r-bioc.*)'
       - --exclude='(/.*dbgsym.*)'
@@ -617,10 +617,7 @@ dependencies:
       - --include='(manpages-dev)' 
       - --include='(/debian-installer-.*)'
       - --include='(/debmirror.*)'
-      - --include='(/Translation-en)'
-      - --include='(/Translation-en\.bz2)'
-      - --include='(/Translation-fr)'
-      - --include='(/Translation-fr\.bz2)'
+      - --include='/Translation-(fr|en).*'
 
   # - role: debmirror
   #   source:
