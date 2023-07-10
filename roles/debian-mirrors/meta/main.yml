@@ -14,6 +14,7 @@ dependencies:
     rsync_extras: none
     suites:
       - bullseye-security
+      - bookworm-security
     keys:
       - name: debian-11-bullseye-security
         url: https://ftp-master.debian.org/keys/archive-key-11-security.asc
@@ -41,6 +42,8 @@ dependencies:
     suites:
       - bullseye
       - bullseye-updates
+      - bookworm
+      - bookworm-updates
     components:
       - 'main'
       - 'main/debian-installer'
