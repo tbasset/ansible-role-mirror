@@ -34,7 +34,7 @@
     - { role: hpelinux-mirrors, tags: ['hpelinux'] }
     - { role: foreman-mirrors, tags: ['foreman'] }
     - { role: puppetlabs-mirrors, tags: ['puppetlabs','never'] }
-    # - { role: git-mirrors, tags: ['git','never'] }
+    - { role: git-mirrors, tags: ['git','never'] }
 
   # tasks:
   #   # apt: apache2

@@ -1,38 +1,42 @@
 ---
 dependencies:
+
   - role: git-bare
     repository: https://github.com/mythic-beasts/dehydrated-mythic-dns01.git
     target: '{{ mirror_base_path }}/git/github.com/mythic-beasts/dehydrated-mythic-dns01.git/'
+
   - role: git-bare
     repository: https://github.com/loz-hurst/dehydrated-code-rack.git
     target: '{{ mirror_base_path }}/git/github.com/loz-hurst/dehydrated-code-rack.git/'
+
   - role: git-bare
-    repository: https://github.com/loz-hurst/cron-wrapper.git
-    target: '{{ mirror_base_path }}/git/github.com/loz-hurst/cron-wrapper.git/'
+    repository: https://github.com/tbasset/ansible-role-mirror.git
+    target: '{{ mirror_base_path }}/git/ansible-role-mirror.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@git.my.domain.tld/path/to/salt-home.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/salt-home.git/'
+    repository: https://github.com/tbasset/ansible-role-deploy-git-repos.git
+    target: '{{ mirror_base_path }}/git/ansible-role-deploy-git-repos.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/debian-installer-preseed.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/debian-installer-preseed.git/'
+    repository: https://github.com/tbasset/ansible-role-grub.git
+    target: '{{ mirror_base_path }}/git/ansible-role-grub.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/icinga2-zones-config.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/icinga2-zones-config.git/'
+    repository: https://github.com/tbasset/ansible-role-ldap.git
+    target: '{{ mirror_base_path }}/git/ansible-role-ldap.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/blog.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/blog.git/'
+    repository: https://github.com/tbasset/ansible-role-tmux.git
+    target: '{{ mirror_base_path }}/git/ansible-role-tmux.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/mailadm.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/mailadm.git/'
+    repository: https://github.com/tbasset/ansible-role-kubernetes.git
+    target: '{{ mirror_base_path }}/git/ansible-role-kubernetes.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/py-budget.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/py-budget.git/'
-  - name: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/py-entek.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/py-entek.git/'
-  - name: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/hack-dilbert.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/hack-dilbert.git/'
+    repository: https://github.com/tbasset/ansible-collection-hardening.git
+    target: '{{ mirror_base_path }}/git/ansible-collection-hardening.git/'
+
   - role: git-bare
-    repository: https://{{ my_git_deploy_credentials }}@my.domain.tld/path/to/puppet.git
-    target: '{{ mirror_base_path }}/git/my.domain.tld/path/to/puppet.git/'
+    repository: https://github.com/tbasset/ansible-role-ca-certificates.git
+    target: '{{ mirror_base_path }}/git/ansible-role-ca-certificates.git/'
