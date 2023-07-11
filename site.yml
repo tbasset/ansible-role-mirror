@@ -2,7 +2,6 @@
 
 - hosts: localhost
   gather_facts: false
-  # become: true
 
   vars:
     mirror_base_path: /var/repos
@@ -18,7 +17,7 @@
 
     - name: Fail if mirrors directory does not exist
       ansible.builtin.fail:
-        msg: 'Please pre-create the mirror target directory (currently set as {{ mirror_base_path }}'
+        msg: 'Please check or create the mirror target directory (currently set as {{ mirror_base_path }}'
       when: not mirror_path_stat.stat.exists
 
     - name: Make sure keyrings directory exists
@@ -66,14 +65,21 @@
   #       name: autoindex
   #       force: true
   #   # file: /var/repos/HEADER.html
-  #   - name: Creating file /var/www/html/HEADER.html
+  #   - name: Creating file /var/repos/HEADER.html
   #     copy:
-  #       dest: /var/www/html/HEADER.html
+  #       dest: /var/repos/HEADER.html
   #       file: HEADER.html
   #       owner: root
   #       group: mirror
   #       mode: 0664
   #   # file: /var/repos/README.html
+  #   - name: Creating file /var/repos/README.html
+  #     copy:
+  #       dest: /var/repos/README.html
+  #       file: README.html
+  #       owner: root
+  #       group: mirror
+  #       mode: 0664
   #   - name: Restart service apache2
   #     ansible.builtin.service:
   #       name: apache2
