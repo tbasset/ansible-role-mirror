@@ -621,6 +621,16 @@ dependencies:
       - --include='(/debian-installer-.*)'
       - --include='(/debmirror.*)'
       - --include='/Translation-(fr|en).*'
+      - --include='(/augeas-lenses.*)'
+      - --include='(/gcc-10.*)'
+      - --include='(/gcc_10.*)'
+      - --include='(/g++-10.*)'
+      - --include='(/g++_10.*)'
+      - --include='(/make_.*)'
+      - --include='(/build-essential_.*)'
+      - --include='(/libc-devtools_.*)'
+      - --include='(/libgmp-dev_.*)'
+      - --include='(/libgmp-dev_.*)'
 
   # - role: debmirror
   #   source:
