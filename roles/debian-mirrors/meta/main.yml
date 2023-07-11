@@ -631,6 +631,7 @@ dependencies:
       - --include='(/libc-devtools_.*)'
       - --include='(/libgmp-dev_.*)'
       - --include='(/libgmp-dev_.*)'
+      - --include='(/tftpd-hpa_.*)'
 
   # - role: debmirror
   #   source:
