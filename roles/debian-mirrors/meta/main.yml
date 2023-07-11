@@ -13,7 +13,6 @@ dependencies:
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
     rsync_extras: none
     suites:
-      - buster-security
       - bullseye-security
       - bookworm-security
     keys:
