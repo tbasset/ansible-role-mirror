@@ -71,11 +71,11 @@
       tags:
         pub
     - name: Disable default vhost
-      command: a2dissite 000-default
+      command: /usr/sbin/a2dissite 000-default
       tags:
         pub
     - name: Enable mirror vhost
-      command: a2ensite mirrorvhost
+      command: /usr/sbin/a2ensite mirrorvhost
       tags:
         pub
     - name: Enable mod_autoindex
