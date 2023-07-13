@@ -37,22 +37,18 @@
     state: present
     name: autoindex
     force: true
-- name: Creating file /var/repos/HEADER.html
+- name: Creating file favicon.ico,HEADER.html,README.html
   become: true
   copy:
-    dest: /var/repos/HEADER.html
-    src: HEADER.html
+    dest: "/var/repos/{{item}}"
+    src: "{{item}}"
     owner: root
     group: mirror
     mode: 0664
-- name: Creating file /var/repos/README.html
-  become: true
-  copy:
-    dest: /var/repos/README.html
-    src: README.html
-    owner: root
-    group: mirror
-    mode: 0664
+  loop:
+  - favicon.ico
+  - HEADER.html
+  - README.html
 - name: Restart service apache2
   become: true
   ansible.builtin.service:
