@@ -6,19 +6,13 @@
   vars:
     mirror_base_path: /var/repos
     # proxy: http://127.0.0.1:3128/
-    # my_git_deploy_credentials: 'user:password'
 
   pre_tasks:
 
-    - name: Stat mirrors directory
-      ansible.builtin.stat:
+    - name: Make sure mirror directory exists
+      ansible.builtin.file:
         path: '{{ mirror_base_path }}'
-      register: mirror_path_stat
-
-    - name: Fail if mirrors directory does not exist
-      ansible.builtin.fail:
-        msg: 'Please check or create the mirror target directory (currently set as {{ mirror_base_path }}'
-      when: not mirror_path_stat.stat.exists
+        state: directory
 
     - name: Make sure keyrings directory exists
       ansible.builtin.file:
@@ -33,7 +27,7 @@
     - { role: hwraid-mirrors, tags: ['hwraid'] }
     - { role: hpelinux-mirrors, tags: ['hpelinux'] }
     - { role: foreman-mirrors, tags: ['foreman'] }
-    - { role: puppetlabs-mirrors, tags: ['puppetlabs','never'] }
+    - { role: puppetlabs-mirrors, tags: ['puppetlabs'] }
     - { role: git-mirrors, tags: ['git','never'] }
 
   tasks:
@@ -41,5 +35,3 @@
     - name: Include web frontend prepare
       ansible.builtin.include_tasks:
         file: frontend.yml
-      tags:
-        - pub

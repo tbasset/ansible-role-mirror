@@ -6,8 +6,6 @@
     state: present
     update_cache: yes 
     cache_valid_time: 3600
-  tags:
-    - pub
 - name: Disable mpm_event/mpm_worker, enable mpm_prefork and ignore warnings about missing mpm module
   become: true
   community.general.apache2_module:
@@ -22,33 +20,23 @@
     state: absent
   - module: mpm_prefork
     state: present
-  tags:
-    - pub
 - name: Creating file /var/repos/mirrorvhost.conf
   become: true
   copy:
     dest: /etc/apache2/sites-available/mirrorvhost.conf
     src: mirrorvhost.conf
-  tags:
-    - pub
 - name: Disable default vhost
   become: true
   command: /usr/sbin/a2dissite 000-default
-  tags:
-    - pub
 - name: Enable mirror vhost
   become: true
   command: /usr/sbin/a2ensite mirrorvhost
-  tags:
-    - pub
 - name: Enable mod_autoindex
   become: true
   community.general.apache2_module:
     state: present
     name: autoindex
     force: true
-  tags:
-    - pub
 - name: Creating file /var/repos/HEADER.html
   become: true
   copy:
@@ -57,8 +45,6 @@
     owner: root
     group: mirror
     mode: 0664
-  tags:
-    - pub
 - name: Creating file /var/repos/README.html
   become: true
   copy:
@@ -67,21 +53,15 @@
     owner: root
     group: mirror
     mode: 0664
-  tags:
-    - pub
 - name: Restart service apache2
   become: true
   ansible.builtin.service:
     name: apache2
     state: restarted
-  tags:
-    - pub
 - name: Clone git
   ansible.builtin.git:
     repo: 'http://mirror.lab.loxda.net/git/autoindex_strapdown.git/'
     dest: /var/repos/autoindex
-  tags:
-    - pub
 - name: Generate .htaccess
   become: true
   shell: |
@@ -89,5 +69,3 @@
     for dir in $(ls -1 /var/repos --ignore=git --ignore=keyrings --ignore=lost+found --ignore=old --ignore=autoindex --ignore=*.html); do 
     echo "AddDescription \"$(grep "Upstream-Mirror:" /var/repos/$dir/project/trace/mirror.lab.loxda.net) $(grep "Date:" /var/repos/$dir/project/trace/mirror.lab.loxda.net)\" $dir" >> /var/repos/.htaccess; 
     done
-  tags:
-    - pub
