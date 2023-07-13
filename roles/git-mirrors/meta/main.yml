@@ -14,6 +14,10 @@ dependencies:
     target: '{{ mirror_base_path }}/git/autoindex_strapdown.git/'
 
   - role: git-bare
+    repository: https://github.com/kindredgroup/puppet-forge-server.git
+    target: '{{ mirror_base_path }}/git/puppet-forge-server.git/'
+
+  - role: git-bare
     repository: https://github.com/tbasset/ansible-role-mirror.git
     target: '{{ mirror_base_path }}/git/ansible-role-mirror.git/'
 
@@ -44,3 +48,4 @@ dependencies:
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-ca-certificates.git
     target: '{{ mirror_base_path }}/git/ansible-role-ca-certificates.git/'
+
