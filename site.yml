@@ -39,6 +39,7 @@
   tasks:
     # apt: apache2
     - name: Ensure Apache is installed on Debian.
+      become: true
       apt: 
         name: apache2 
         state: present
@@ -47,6 +48,7 @@
       tags:
         pub
     - name: Disable mpm_event/mpm_worker, enable mpm_prefork and ignore warnings about missing mpm module
+      become: true
       community.general.apache2_module:
         name: "{{ item.module }}"
         state: "{{ item.state }}"
@@ -62,6 +64,7 @@
       tags:
         pub
     - name: Creating file /var/repos/mirrorvhost.conf
+      become: true
       copy:
         dest: /etc/apache2/sites-enabled/mirrorvhost.conf
         file: mirrorvhost.conf
@@ -77,6 +80,7 @@
       tags:
         pub
     - name: Creating file /var/repos/HEADER.html
+      become: true
       copy:
         dest: /var/repos/HEADER.html
         file: HEADER.html
@@ -86,6 +90,7 @@
       tags:
         pub
     - name: Creating file /var/repos/README.html
+      become: true
       copy:
         dest: /var/repos/README.html
         file: README.html
@@ -95,6 +100,7 @@
       tags:
         pub
     - name: Restart service apache2
+      become: true
       ansible.builtin.service:
         name: apache2
         state: restarted
