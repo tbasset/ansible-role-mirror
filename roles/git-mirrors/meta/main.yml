@@ -2,8 +2,8 @@
 dependencies:
 
   - role: git-bare
-    repository: https://github.com/arturadib/strapdown.git
-    target: '{{ mirror_base_path }}/git/strapdownjs.git/'
+    repository: https://github.com/chuckhoupt/autoindex_strapdown.git
+    target: '{{ mirror_base_path }}/git/autoindex_strapdown.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-mirror.git
