@@ -68,10 +68,16 @@
       copy:
         dest: /etc/apache2/sites-enabled/mirrorvhost.conf
         src: mirrorvhost.conf
+      tags:
+        pub
     - name: Disable default vhost
       command: a2dissite 000-default
+      tags:
+        pub
     - name: Enable mirror vhost
       command: a2ensite mirrorvhost
+      tags:
+        pub
     - name: Enable mod_autoindex
       community.general.apache2_module:
         state: present
