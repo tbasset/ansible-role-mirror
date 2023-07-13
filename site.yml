@@ -36,51 +36,67 @@
     - { role: puppetlabs-mirrors, tags: ['puppetlabs','never'] }
     - { role: git-mirrors, tags: ['git','never'] }
 
-  # tasks:
-  #   # apt: apache2
-  #   - name: Ensure Apache is installed on Debian.
-  #     apt: 
-  #       name: apache2 
-  #       state: present
-  #       update_cache: yes 
-  #       cache_valid_time: 3600
-  #   - name: Disable mpm_event/mpm_worker, enable mpm_prefork and ignore warnings about missing mpm module
-  #     community.general.apache2_module:
-  #       name: "{{ item.module }}"
-  #       state: "{{ item.state }}"
-  #       warn_mpm_absent: false
-  #       ignore_configcheck: true
-  #     loop:
-  #     - module: mpm_worker
-  #       state: absent
-  #     - module: mpm_event
-  #       state: absent
-  #     - module: mpm_prefork
-  #       state: present
-  #   # apache2: vhost:80 /var/repos
-  #   # apache2: mod_autoindex
-  #   - name: Enable mod_autoindex
-  #     community.general.apache2_module:
-  #       state: present
-  #       name: autoindex
-  #       force: true
-  #   # file: /var/repos/HEADER.html
-  #   - name: Creating file /var/repos/HEADER.html
-  #     copy:
-  #       dest: /var/repos/HEADER.html
-  #       file: HEADER.html
-  #       owner: root
-  #       group: mirror
-  #       mode: 0664
-  #   # file: /var/repos/README.html
-  #   - name: Creating file /var/repos/README.html
-  #     copy:
-  #       dest: /var/repos/README.html
-  #       file: README.html
-  #       owner: root
-  #       group: mirror
-  #       mode: 0664
-  #   - name: Restart service apache2
-  #     ansible.builtin.service:
-  #       name: apache2
-  #       state: restarted
+  tasks:
+    # apt: apache2
+    - name: Ensure Apache is installed on Debian.
+      apt: 
+        name: apache2 
+        state: present
+        update_cache: yes 
+        cache_valid_time: 3600
+      tags:
+        pub
+    - name: Disable mpm_event/mpm_worker, enable mpm_prefork and ignore warnings about missing mpm module
+      community.general.apache2_module:
+        name: "{{ item.module }}"
+        state: "{{ item.state }}"
+        warn_mpm_absent: false
+        ignore_configcheck: true
+      loop:
+      - module: mpm_worker
+        state: absent
+      - module: mpm_event
+        state: absent
+      - module: mpm_prefork
+        state: present
+      tags:
+        pub
+    - name: Creating file /var/repos/mirrorvhost.conf
+      copy:
+        dest: /etc/apache2/sites-enabled/mirrorvhost.conf
+        file: mirrorvhost.conf
+    - name: Disable default vhost
+      command: a2dissite 000-default
+    - name: Enable mirror vhost
+      command: a2ensite mirrorvhost
+    - name: Enable mod_autoindex
+      community.general.apache2_module:
+        state: present
+        name: autoindex
+        force: true
+      tags:
+        pub
+    - name: Creating file /var/repos/HEADER.html
+      copy:
+        dest: /var/repos/HEADER.html
+        file: HEADER.html
+        owner: root
+        group: mirror
+        mode: 0664
+      tags:
+        pub
+    - name: Creating file /var/repos/README.html
+      copy:
+        dest: /var/repos/README.html
+        file: README.html
+        owner: root
+        group: mirror
+        mode: 0664
+      tags:
+        pub
+    - name: Restart service apache2
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
+      tags:
+        pub
