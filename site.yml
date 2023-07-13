@@ -28,7 +28,7 @@
     - { role: hpelinux-mirrors, tags: ['hpelinux'] }
     - { role: foreman-mirrors, tags: ['foreman'] }
     - { role: puppetlabs-mirrors, tags: ['puppetlabs'] }
-    - { role: git-mirrors, tags: ['git','never'] }
+    - { role: git-mirrors, tags: ['git'] }
 
   tasks:
 
