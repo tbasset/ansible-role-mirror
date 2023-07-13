@@ -67,7 +67,7 @@
       become: true
       copy:
         dest: /etc/apache2/sites-enabled/mirrorvhost.conf
-        file: mirrorvhost.conf
+        src: mirrorvhost.conf
     - name: Disable default vhost
       command: a2dissite 000-default
     - name: Enable mirror vhost
@@ -83,7 +83,7 @@
       become: true
       copy:
         dest: /var/repos/HEADER.html
-        file: HEADER.html
+        src: HEADER.html
         owner: root
         group: mirror
         mode: 0664
@@ -93,7 +93,7 @@
       become: true
       copy:
         dest: /var/repos/README.html
-        file: README.html
+        src: README.html
         owner: root
         group: mirror
         mode: 0664
