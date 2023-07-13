@@ -2,41 +2,37 @@
 dependencies:
 
   - role: git-bare
-    repository: https://github.com/mythic-beasts/dehydrated-mythic-dns01.git
-    target: '{{ mirror_base_path }}/git/github.com/mythic-beasts/dehydrated-mythic-dns01.git/'
-
-  - role: git-bare
-    repository: https://github.com/loz-hurst/dehydrated-code-rack.git
-    target: '{{ mirror_base_path }}/git/github.com/loz-hurst/dehydrated-code-rack.git/'
+    repository: https://github.com/arturadib/strapdown.git
+    target: '{{ mirror_base_path }}/git/strapdownjs.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-mirror.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-mirror.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-mirror.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-deploy-git-repos.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-deploy-git-repos.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-deploy-git-repos.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-grub.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-grub.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-grub.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-ldap.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-ldap.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-ldap.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-tmux.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-tmux.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-tmux.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-kubernetes.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-kubernetes.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-kubernetes.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-collection-hardening.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-collection-hardening.git/'
+    target: '{{ mirror_base_path }}/git/ansible-collection-hardening.git/'
 
   - role: git-bare
     repository: https://github.com/tbasset/ansible-role-ca-certificates.git
-    target: '{{ mirror_base_path }}/git/github.com/tbasset/ansible-role-ca-certificates.git/'
+    target: '{{ mirror_base_path }}/git/ansible-role-ca-certificates.git/'

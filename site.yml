@@ -79,6 +79,12 @@
         force: true
       tags:
         pub
+    - name: Clone git
+      ansible.builtin.git:
+        repo: 'http://mirror.lab.loxda.net/git/strapdownjs.git/'
+        dest: /var/repos/autoindex
+      tags:
+        pub
     - name: Creating file /var/repos/HEADER.html
       become: true
       copy:
