@@ -2,6 +2,14 @@
 dependencies:
 
   - role: git-bare
+    repository: https://github.com/ipxe/ipxe.git
+    target: '{{ mirror_base_path }}/git/ipxe/ipxe.git/'
+
+  - role: git-bare
+    repository: https://github.com/ipxe/wimboot.git
+    target: '{{ mirror_base_path }}/git/ipxe/wimboot.git/'
+
+  - role: git-bare
     repository: https://github.com/chuckhoupt/autoindex_strapdown.git
     target: '{{ mirror_base_path }}/git/autoindex_strapdown.git/'
 
