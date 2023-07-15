@@ -10,6 +10,7 @@ dependencies:
     target: '{{ mirror_base_path }}/puppetlabs'
     keyring_directory: '{{ mirror_base_path }}/keyrings/puppetlabs'
     suites:
+      - buster
       - bullseye
     components:
       - puppet7

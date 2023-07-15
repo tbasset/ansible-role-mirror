@@ -10,10 +10,10 @@ dependencies:
     target: '{{ mirror_base_path }}/foreman'
     keyring_directory: '{{ mirror_base_path }}/keyrings/foreman'
     suites:
+      - buster
       - bullseye
       - plugins
     components:
-      - '3.3'
       - '3.4'
       - '3.5'
       - '3.6'
