@@ -14,6 +14,10 @@ dependencies:
     target: '{{ mirror_base_path }}/git/autoindex_strapdown.git/'
 
   - role: git-bare
+    repository: https://github.com/rubygems/rubygems-mirror.git
+    target: '{{ mirror_base_path }}/git/rubygems-mirror.git/'
+
+  - role: git-bare
     repository: https://github.com/kindredgroup/puppet-forge-server.git
     target: '{{ mirror_base_path }}/git/puppet-forge-server.git/'
 
