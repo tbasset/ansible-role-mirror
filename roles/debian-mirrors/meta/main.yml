@@ -1,13 +1,12 @@
 ---
 
 dependencies:
-
   # for debmirror type, use double-slashes "//" prefix for root url when using shipped debmirror-modified
 
   - role: debmirror
     method: http
     source:
-      host: ftp.fr.debian.org
+      host: ftp.de.debian.org
       root: //debian-security
     target: '{{ mirror_base_path }}/debian-security'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
@@ -35,7 +34,7 @@ dependencies:
   - role: debmirror
     method: http
     source:
-      host: ftp.fr.debian.org
+      host: ftp.de.debian.org
       root: //debian
     target: '{{ mirror_base_path }}/debian'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
