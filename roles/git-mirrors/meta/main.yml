@@ -54,19 +54,19 @@ dependencies:
     target: '{{ mirror_base_path }}/git/ansible-role-ca-certificates.git/'
 
   - role: git-bare
-    repository: https://gitea.lab.loxda.net/MIROIR/ansible-role-bind.git
+    repository: https://github.com/tbasset/ansible-role-bind.git
     target: '{{ mirror_base_path }}/git/ansible-role-bind.git/'
 
   - role: git-bare
-    repository: https://gitea.lab.loxda.net/MIROIR/log2ram.git
+    repository: https://github.com/tbasset/log2ram.git
     target: '{{ mirror_base_path }}/git/log2ram.git/'
 
   - role: git-bare
-    repository: https://gitea.lab.loxda.net/MIROIR/ansible-role-proxmox.git
+    repository: https://github.com/tbasset/ansible-role-proxmox.git
     target: '{{ mirror_base_path }}/git/ansible-role-proxmox.git/'
 
   - role: git-bare
-    repository: https://gitea.lab.loxda.net/MIROIR/ansible-config-interfaces.git
+    repository: https://github.com/tbasset/ansible-config-interfaces.git
     target: '{{ mirror_base_path }}/git/ansible-config-interfaces.git/'
 
 
