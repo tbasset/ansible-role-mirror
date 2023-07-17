@@ -67,6 +67,6 @@
   shell: |
     rm /var/repos/.htaccess; 
     for dir in $(ls -1 /var/repos --ignore=git --ignore=keyrings --ignore=lost+found --ignore=old --ignore=autoindex --ignore=*.html); do 
-    echo "AddDescription \"$(grep "Upstream-Mirror:" /var/repos/$dir/project/trace/mirror.lab.loxda.net) $(grep "Date:" /var/repos/$dir/project/trace/mirror.lab.loxda.net)\" $dir\/" >> /var/repos/.htaccess; 
+    echo "AddDescription \"$(grep "Upstream-Mirror:" /var/repos/$dir/project/trace/mirror.lab.loxda.net) $(grep "Date:" /var/repos/$dir/project/trace/mirror.lab.loxda.net)\" $dir/" >> /var/repos/.htaccess; 
     done
   tags: frontend
