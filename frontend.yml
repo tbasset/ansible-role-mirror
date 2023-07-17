@@ -37,6 +37,12 @@
     state: present
     name: autoindex
     force: true
+- name: Enable mod_rewrite
+  become: true
+  community.general.apache2_module:
+    state: present
+    name: rewrite
+    force: true
 - name: Creating file favicon.ico,HEADER.html,README.html
   become: true
   copy:
