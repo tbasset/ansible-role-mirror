@@ -6,6 +6,7 @@
     state: present
     update_cache: yes 
     cache_valid_time: 3600
+
 - name: Disable mpm_event/mpm_worker, enable mpm_prefork and required module
   become: true
   community.general.apache2_module:
@@ -24,11 +25,13 @@
     state: present
   - module: autoindex
     state: present
+
 - name: Creating file /var/repos/mirrorvhost.conf
   become: true
   copy:
     dest: /etc/apache2/sites-available/mirrorvhost.conf
     src: mirrorvhost.conf
+
 - name: Disable default vhost
   become: true
   command: /usr/sbin/a2dissite 000-default
@@ -47,15 +50,18 @@
   - favicon.ico
   - HEADER.html
   - README.html
+
 - name: Restart service apache2
   become: true
   ansible.builtin.service:
     name: apache2
     state: restarted
+
 - name: Clone git
   ansible.builtin.git:
     repo: 'http://mirror.lab.loxda.net/git/autoindex_strapdown.git/'
     dest: /var/repos/autoindex
+
 - name: Generate .htaccess
   become: true
   shell: |
