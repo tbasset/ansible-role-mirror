@@ -7,7 +7,7 @@ dependencies:
   - role: debmirror
     method: http
     source:
-      host: debian.proxad.net
+      host: ftp.fr.debian.org
       root: //debian-security
     target: '{{ mirror_base_path }}/debian-security'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian-security'
@@ -35,7 +35,7 @@ dependencies:
   - role: debmirror
     method: http
     source:
-      host: debian.proxad.net
+      host: ftp.fr.debian.org
       root: //debian
     target: '{{ mirror_base_path }}/debian'
     keyring_directory: '{{ mirror_base_path }}/keyrings/debian'
