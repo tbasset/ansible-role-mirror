@@ -6,7 +6,7 @@
     state: present
     update_cache: yes 
     cache_valid_time: 3600
-- name: Disable mpm_event/mpm_worker, enable mpm_prefork and ignore warnings about missing mpm module
+- name: Disable mpm_event/mpm_worker, enable mpm_prefork and required module
   become: true
   community.general.apache2_module:
     name: "{{ item.module }}"
@@ -20,6 +20,10 @@
     state: absent
   - module: mpm_prefork
     state: present
+  - module: rewrite
+    state: present
+  - module: autoindex
+    state: present
 - name: Creating file /var/repos/mirrorvhost.conf
   become: true
   copy:
@@ -31,18 +35,6 @@
 - name: Enable mirror vhost
   become: true
   command: /usr/sbin/a2ensite mirrorvhost
-- name: Enable mod_autoindex
-  become: true
-  community.general.apache2_module:
-    state: present
-    name: autoindex
-    force: true
-- name: Enable mod_rewrite
-  become: true
-  community.general.apache2_module:
-    state: present
-    name: rewrite
-    force: true
 - name: Creating file favicon.ico,HEADER.html,README.html
   become: true
   copy:
