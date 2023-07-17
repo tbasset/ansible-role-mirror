@@ -35,4 +35,3 @@
     - name: Include web frontend prepare
       ansible.builtin.include_tasks:
         file: frontend.yml
-      tags: ['frontend']

@@ -72,4 +72,3 @@
     echo "AddDescription \"GPG keyrings for the various mirrors here\" keyrings" >> /var/repos/.htaccess
     echo "AddDescription \"mirror from https://rubygems.org\" gems" >> /var/repos/.htaccess
     echo "AddDescription \"mirror from various git repositories\" git" >> /var/repos/.htaccess
-  tags: frontend
