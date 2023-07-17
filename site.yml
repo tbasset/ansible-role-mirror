@@ -5,7 +5,7 @@
 
   vars:
     mirror_base_path: /var/repos
-    proxy: http://172.16.202.253:3128/
+    # proxy: http://172.16.202.253:3128/
 
   pre_tasks:
 
