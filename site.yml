@@ -11,12 +11,12 @@
 
     - name: Make sure mirror directory exists
       ansible.builtin.file:
-        path: '{{ mirror_base_path }}'
+        path: "{{ mirror_base_path }}"
         state: directory
 
     - name: Make sure keyrings directory exists
       ansible.builtin.file:
-        path: '{{ mirror_base_path }}/keyrings'
+        path: "{{ mirror_base_path }}/keyrings"
         state: directory
 
   roles:
@@ -31,6 +31,16 @@
     - { role: git-mirrors, tags: ['git'] }
 
   tasks:
+
+    - name: Download syslinux-3.86.tar.gz archive from kernel.org
+      get_url:
+        url: https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/3.xx/syslinux-3.86.tar.gz
+        dest: "{{ mirror_base_path }}/syslinux-3.86.tar.gz"
+
+    - name: Download foreman_discovery_image archive from theforeman.org
+      get_url:
+        url: http://downloads.theforeman.org/discovery/releases/latest/fdi-image-latest.tar
+        dest: "{{ mirror_base_path }}/fdi-image-latest.tar"
 
     - name: Include web frontend prepare
       ansible.builtin.include_tasks:
