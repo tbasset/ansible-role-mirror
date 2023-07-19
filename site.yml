@@ -35,12 +35,12 @@
     - name: Download syslinux-3.86.tar.gz archive from kernel.org
       get_url:
         url: https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/3.xx/syslinux-3.86.tar.gz
-        dest: "{{ mirror_base_path }}/syslinux-3.86.tar.gz"
+        dest: "{{ mirror_base_path }}/foreman/syslinux-3.86.tar.gz"
 
     - name: Download foreman_discovery_image archive from theforeman.org
       get_url:
         url: http://downloads.theforeman.org/discovery/releases/latest/fdi-image-latest.tar
-        dest: "{{ mirror_base_path }}/fdi-image-latest.tar"
+        dest: "{{ mirror_base_path }}/foreman/fdi-image-latest.tar"
 
     - name: Include web frontend prepare
       ansible.builtin.include_tasks:
