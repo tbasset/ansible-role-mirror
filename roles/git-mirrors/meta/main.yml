@@ -81,6 +81,6 @@ dependencies:
     repository: https://gitea.lab.loxda.net/LAB/ansible-role-windows-firefoxesr.git
     target: '{{ mirror_base_path }}/git/ansible-role-windows-firefoxesr.git/'
 
-  - role: git-bare
-    repository: https://gitea.lab.loxda.net/MIROIR/ansible-firefox-config.git
-    target: '{{ mirror_base_path }}/git/ansible-firefox-config.git/'
+  # - role: git-bare
+  #   repository: https://gitea.lab.loxda.net/MIROIR/ansible-firefox-config.git
+  #   target: '{{ mirror_base_path }}/git/ansible-firefox-config.git/'
