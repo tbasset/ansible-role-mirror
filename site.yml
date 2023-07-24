@@ -42,7 +42,7 @@
       get_url:
         url: http://downloads.theforeman.org/discovery/releases/latest/fdi-image-latest.tar
         dest: "{{ mirror_base_path }}/foreman/fdi-image-latest.tar"
-      tags: ['foreman']
+      tags: ['fdi']
       
     - name: Include web frontend prepare
       ansible.builtin.include_tasks:
