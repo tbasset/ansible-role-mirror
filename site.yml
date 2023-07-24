@@ -36,6 +36,7 @@
       get_url:
         url: https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/3.xx/syslinux-3.86.tar.gz
         dest: "{{ mirror_base_path }}/foreman/syslinux-3.86.tar.gz"
+      tags: ['syslinux386']
 
     - name: Download foreman_discovery_image archive from theforeman.org
       get_url:
