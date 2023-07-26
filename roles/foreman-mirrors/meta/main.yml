@@ -23,7 +23,7 @@ dependencies:
       - 'nightly'
     keys:
       - name: foreman-keyring
-        url: https://deb.theforeman.org/foreman.asc
+        url: https://deb.theforeman.org/pubkey.gpg
     extra_options:
       - --nosource
       - --no-check-gpg
