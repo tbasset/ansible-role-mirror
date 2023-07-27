@@ -69,17 +69,17 @@ dependencies:
     repository: https://github.com/mrlesmithjr/ansible-config-interfaces.git
     target: '{{ mirror_base_path }}/git/ansible-config-interfaces.git/'
 
-  - role: git-bare
-    repository: https://gitea.lab.loxda.net/LAB/ansible-role-windows-proxy.git
-    target: '{{ mirror_base_path }}/git/ansible-role-windows-proxy.git/'
+  # - role: git-bare
+  #   repository: https://gitea.lab.loxda.net/LAB/ansible-role-windows-proxy.git
+  #   target: '{{ mirror_base_path }}/git/ansible-role-windows-proxy.git/'
 
-  - role: git-bare
-    repository: https://gitea.lab.loxda.net/MIROIR/ansible-role-windows-bginfo.git
-    target: '{{ mirror_base_path }}/git/ansible-role-windows-bginfo.git/'
+  # - role: git-bare
+  #   repository: https://gitea.lab.loxda.net/MIROIR/ansible-role-windows-bginfo.git
+  #   target: '{{ mirror_base_path }}/git/ansible-role-windows-bginfo.git/'
 
-  - role: git-bare
-    repository: https://gitea.lab.loxda.net/LAB/ansible-role-windows-firefoxesr.git
-    target: '{{ mirror_base_path }}/git/ansible-role-windows-firefoxesr.git/'
+  # - role: git-bare
+  #   repository: https://gitea.lab.loxda.net/LAB/ansible-role-windows-firefoxesr.git
+  #   target: '{{ mirror_base_path }}/git/ansible-role-windows-firefoxesr.git/'
 
   # - role: git-bare
   #   repository: https://gitea.lab.loxda.net/MIROIR/ansible-firefox-config.git
